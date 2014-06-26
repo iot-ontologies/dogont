@@ -3927,7 +3927,7 @@
         <dogont:hasFunctionality rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OnOffFunctionality_p20_living"/>
         <dogont:hasFunctionality rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OnOffNotificationFunctionality_p20_living"/>
         <dogont:hasState rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OnOffState_p20_living"/>
-        <dogont:hasNotification rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#SimpleLevelNotificationFunctionality_p20_living"/>
+        <dogont:hasFunctionality rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#SimpleLevelNotificationFunctionality_p20_living"/>
         <dogont:hasControl rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#Switch_allPlugsLiving"/>
         <dogont:isIn rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#livingroom"/>
     </owl:NamedIndividual>
