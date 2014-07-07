@@ -4837,8 +4837,8 @@
     <!-- http://elite.polito.it/ontologies/simpleHome.owl#OffNotification_Switch_P12_kitchen -->
 
     <owl:NamedIndividual rdf:about="http://elite.polito.it/ontologies/simpleHome.owl#OffNotification_Switch_P12_kitchen">
+        <rdf:type rdf:resource="&dogont;KonnexNotification"/>
         <rdf:type rdf:resource="&dogont;OffNotification"/>
-        <dogont:notificationName rdf:datatype="&xsd;string">off</dogont:notificationName>
         <dogont:hexValue>0x80</dogont:hexValue>
         <dogont:groupAddress>3/0/0</dogont:groupAddress>
         <dogont:generateCommand rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OffCommand_p12_kitchen"/>
@@ -4850,8 +4850,8 @@
     <!-- http://elite.polito.it/ontologies/simpleHome.owl#OffNotification_Switch_P13_kitchen -->
 
     <owl:NamedIndividual rdf:about="http://elite.polito.it/ontologies/simpleHome.owl#OffNotification_Switch_P13_kitchen">
+        <rdf:type rdf:resource="&dogont;KonnexNotification"/>
         <rdf:type rdf:resource="&dogont;OffNotification"/>
-        <dogont:notificationName rdf:datatype="&xsd;string">off</dogont:notificationName>
         <dogont:groupAddress>3/0/1</dogont:groupAddress>
         <dogont:hexValue>0x80</dogont:hexValue>
         <dogont:generateCommand rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OffCommand_p13_kitchen"/>
@@ -4863,8 +4863,8 @@
     <!-- http://elite.polito.it/ontologies/simpleHome.owl#OffNotification_Switch_P14_kitchen -->
 
     <owl:NamedIndividual rdf:about="http://elite.polito.it/ontologies/simpleHome.owl#OffNotification_Switch_P14_kitchen">
+        <rdf:type rdf:resource="&dogont;KonnexNotification"/>
         <rdf:type rdf:resource="&dogont;OffNotification"/>
-        <dogont:notificationName rdf:datatype="&xsd;string">off</dogont:notificationName>
         <dogont:hexValue>0x80</dogont:hexValue>
         <dogont:groupAddress>3/0/2</dogont:groupAddress>
         <dogont:generateCommand rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OffCommand_p14_kitchen"/>
@@ -4876,8 +4876,8 @@
     <!-- http://elite.polito.it/ontologies/simpleHome.owl#OffNotification_Switch_P15_kitchen -->
 
     <owl:NamedIndividual rdf:about="http://elite.polito.it/ontologies/simpleHome.owl#OffNotification_Switch_P15_kitchen">
+        <rdf:type rdf:resource="&dogont;KonnexNotification"/>
         <rdf:type rdf:resource="&dogont;OffNotification"/>
-        <dogont:notificationName rdf:datatype="&xsd;string">off</dogont:notificationName>
         <dogont:hexValue>0x80</dogont:hexValue>
         <dogont:groupAddress>3/0/3</dogont:groupAddress>
         <dogont:generateCommand rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OffCommand_p15_kitchen"/>
@@ -4992,9 +4992,6 @@
 
     <owl:NamedIndividual rdf:about="http://elite.polito.it/ontologies/simpleHome.owl#OffNotification_b8_lobby">
         <rdf:type rdf:resource="&dogont;OffNotification"/>
-        <dogont:notificationName rdf:datatype="&xsd;string">off</dogont:notificationName>
-        <dogont:hexValue>0x80</dogont:hexValue>
-        <dogont:groupAddress>0/5/3</dogont:groupAddress>
         <dogont:generateCommand rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OffCommand_lamp6_kitchen"/>
         <dogont:notificationOf rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OnOffNotificationFunctionality_b8_lobby"/>
     </owl:NamedIndividual>
@@ -5004,11 +5001,7 @@
     <!-- http://elite.polito.it/ontologies/simpleHome.owl#OffNotification_b9_lobby -->
 
     <owl:NamedIndividual rdf:about="http://elite.polito.it/ontologies/simpleHome.owl#OffNotification_b9_lobby">
-        <rdf:type rdf:resource="&dogont;KonnexNotification"/>
         <rdf:type rdf:resource="&dogont;OffNotification"/>
-        <dogont:notificationName rdf:datatype="&xsd;string">off</dogont:notificationName>
-        <dogont:groupAddress>0/6/2</dogont:groupAddress>
-        <dogont:hexValue>0x80</dogont:hexValue>
         <dogont:generateCommand rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OffCommand_lamp3_storage"/>
         <dogont:notificationOf rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OnOffNotificationFunctionality_b9_lobby"/>
     </owl:NamedIndividual>
@@ -5027,9 +5020,6 @@
 
     <owl:NamedIndividual rdf:about="http://elite.polito.it/ontologies/simpleHome.owl#OffNotification_button5_lobby">
         <rdf:type rdf:resource="&dogont;OffNotification"/>
-        <dogont:notificationName rdf:datatype="&xsd;string">off</dogont:notificationName>
-        <dogont:groupAddress>0/5/2</dogont:groupAddress>
-        <dogont:hexValue>0x80</dogont:hexValue>
         <dogont:generateCommand rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OffCommand_lamp7_livingroom"/>
         <dogont:notificationOf rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OnOffNotificationFunctionality_button5_lobby"/>
     </owl:NamedIndividual>
@@ -6467,8 +6457,8 @@
     <!-- http://elite.polito.it/ontologies/simpleHome.owl#OnNotification_Switch_P12_kitchen -->
 
     <owl:NamedIndividual rdf:about="http://elite.polito.it/ontologies/simpleHome.owl#OnNotification_Switch_P12_kitchen">
+        <rdf:type rdf:resource="&dogont;KonnexNotification"/>
         <rdf:type rdf:resource="&dogont;OnNotification"/>
-        <dogont:notificationName rdf:datatype="&xsd;string">on</dogont:notificationName>
         <dogont:hexValue>0x81</dogont:hexValue>
         <dogont:groupAddress>3/0/0</dogont:groupAddress>
         <dogont:generateCommand rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OnCommand_p12_kitchen"/>
@@ -6480,8 +6470,8 @@
     <!-- http://elite.polito.it/ontologies/simpleHome.owl#OnNotification_Switch_P13_kitchen -->
 
     <owl:NamedIndividual rdf:about="http://elite.polito.it/ontologies/simpleHome.owl#OnNotification_Switch_P13_kitchen">
+        <rdf:type rdf:resource="&dogont;KonnexNotification"/>
         <rdf:type rdf:resource="&dogont;OnNotification"/>
-        <dogont:notificationName rdf:datatype="&xsd;string">on</dogont:notificationName>
         <dogont:hexValue>0x81</dogont:hexValue>
         <dogont:groupAddress>3/0/1</dogont:groupAddress>
         <dogont:generateCommand rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OnCommand_p13_kitchen"/>
@@ -6493,8 +6483,8 @@
     <!-- http://elite.polito.it/ontologies/simpleHome.owl#OnNotification_Switch_P14_kitchen -->
 
     <owl:NamedIndividual rdf:about="http://elite.polito.it/ontologies/simpleHome.owl#OnNotification_Switch_P14_kitchen">
+        <rdf:type rdf:resource="&dogont;KonnexNotification"/>
         <rdf:type rdf:resource="&dogont;OnNotification"/>
-        <dogont:notificationName rdf:datatype="&xsd;string">on</dogont:notificationName>
         <dogont:groupAddress>3/0/2</dogont:groupAddress>
         <dogont:hexValue>0x81</dogont:hexValue>
         <dogont:generateCommand rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OnCommand_p14_kitchen"/>
@@ -6506,8 +6496,8 @@
     <!-- http://elite.polito.it/ontologies/simpleHome.owl#OnNotification_Switch_P15_kitchen -->
 
     <owl:NamedIndividual rdf:about="http://elite.polito.it/ontologies/simpleHome.owl#OnNotification_Switch_P15_kitchen">
+        <rdf:type rdf:resource="&dogont;KonnexNotification"/>
         <rdf:type rdf:resource="&dogont;OnNotification"/>
-        <dogont:notificationName rdf:datatype="&xsd;string">on</dogont:notificationName>
         <dogont:groupAddress>3/0/3</dogont:groupAddress>
         <dogont:hexValue>0x81</dogont:hexValue>
         <dogont:generateCommand rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OnCommand_p15_kitchen"/>
@@ -6621,11 +6611,7 @@
     <!-- http://elite.polito.it/ontologies/simpleHome.owl#OnNotification_b8_lobby -->
 
     <owl:NamedIndividual rdf:about="http://elite.polito.it/ontologies/simpleHome.owl#OnNotification_b8_lobby">
-        <rdf:type rdf:resource="&dogont;KonnexNotification"/>
         <rdf:type rdf:resource="&dogont;OnNotification"/>
-        <dogont:notificationName rdf:datatype="&xsd;string">on</dogont:notificationName>
-        <dogont:hexValue>0x81</dogont:hexValue>
-        <dogont:groupAddress>0/5/3</dogont:groupAddress>
         <dogont:generateCommand rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OnCommand_lamp6_kitchen"/>
         <dogont:notificationOf rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OnOffNotificationFunctionality_b8_lobby"/>
     </owl:NamedIndividual>
@@ -6635,11 +6621,7 @@
     <!-- http://elite.polito.it/ontologies/simpleHome.owl#OnNotification_b9_lobby -->
 
     <owl:NamedIndividual rdf:about="http://elite.polito.it/ontologies/simpleHome.owl#OnNotification_b9_lobby">
-        <rdf:type rdf:resource="&dogont;KonnexNotification"/>
         <rdf:type rdf:resource="&dogont;OnNotification"/>
-        <dogont:notificationName rdf:datatype="&xsd;string">on</dogont:notificationName>
-        <dogont:hexValue>0x81</dogont:hexValue>
-        <dogont:groupAddress>0/6/2</dogont:groupAddress>
         <dogont:generateCommand rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OnCommand_lamp3_storage"/>
         <dogont:notificationOf rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OnOffNotificationFunctionality_b9_lobby"/>
     </owl:NamedIndividual>
@@ -6657,11 +6639,7 @@
     <!-- http://elite.polito.it/ontologies/simpleHome.owl#OnNotification_button5_lobby -->
 
     <owl:NamedIndividual rdf:about="http://elite.polito.it/ontologies/simpleHome.owl#OnNotification_button5_lobby">
-        <rdf:type rdf:resource="&dogont;KonnexNotification"/>
         <rdf:type rdf:resource="&dogont;OnNotification"/>
-        <dogont:notificationName rdf:datatype="&xsd;string">on</dogont:notificationName>
-        <dogont:groupAddress>0/5/2</dogont:groupAddress>
-        <dogont:hexValue>0x81</dogont:hexValue>
         <dogont:generateCommand rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OnCommand_lamp7_livingroom"/>
         <dogont:notificationOf rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OnOffNotificationFunctionality_button5_lobby"/>
     </owl:NamedIndividual>
@@ -10468,7 +10446,6 @@
     <!-- http://elite.polito.it/ontologies/simpleHome.owl#PressedNotification_button14_bath -->
 
     <owl:NamedIndividual rdf:about="http://elite.polito.it/ontologies/simpleHome.owl#PressedNotification_button14_bath">
-        <rdf:type rdf:resource="&dogont;KonnexNotification"/>
         <rdf:type rdf:resource="&dogont;PressedNotification"/>
         <dogont:generateCommand rdf:resource="http://elite.polito.it/ontologies/simpleHome.owl#OnCommand_bu1_lobby"/>
     </owl:NamedIndividual>
@@ -10927,7 +10904,6 @@
     <!-- http://elite.polito.it/ontologies/simpleHome.owl#ReleasedNotification_button14_bath -->
 
     <owl:NamedIndividual rdf:about="http://elite.polito.it/ontologies/simpleHome.owl#ReleasedNotification_button14_bath">
-        <rdf:type rdf:resource="&dogont;KonnexNotification"/>
         <rdf:type rdf:resource="&dogont;ReleasedNotification"/>
     </owl:NamedIndividual>
     
@@ -10936,6 +10912,7 @@
     <!-- http://elite.polito.it/ontologies/simpleHome.owl#ReleasedNotification_button15_bath -->
 
     <owl:NamedIndividual rdf:about="http://elite.polito.it/ontologies/simpleHome.owl#ReleasedNotification_button15_bath">
+        <rdf:type rdf:resource="&dogont;KonnexNotification"/>
         <rdf:type rdf:resource="&dogont;ReleasedNotification"/>
         <dogont:groupAddress>2/2/0</dogont:groupAddress>
         <dogont:hexValue>0x80</dogont:hexValue>
