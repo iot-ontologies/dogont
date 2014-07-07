@@ -59,6 +59,7 @@ limitations under the License
         <owl:versionInfo rdf:datatype="&xsd;string">3.2.7</owl:versionInfo>
         <terms:rights rdf:datatype="&xsd;string">Copyright(c) 2008-2014 Dario Bonino</terms:rights>
         <terms:creator rdf:datatype="&xsd;string">Dario Bonino (dario.bonino@polito.it, dario.bonino@gmail.com)</terms:creator>
+	<terms:contributor rdf:datatype="&xsd;string">Luigi De Russis (luigi.derussis@polito.it, luigidr@gmail.com)</terms:contributor>
         <terms:description rdf:datatype="&xsd;string">DogOnt is a novel modeling language for IDEs (Intelligent Domotic Environment), based on Semantic Web technologies. By adopting well known representations such as ontologies and by providing suitable reasoning facilities, DogOnt is able to face interoperation issues allowing to describe:
 
 - where a domotic device is located;
