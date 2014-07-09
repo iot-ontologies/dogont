@@ -44,6 +44,12 @@
     
 
 
+    <!-- http://elite.polito.it/ontologies/dogont.owl#unitOfMeasure -->
+
+    <owl:AnnotationProperty rdf:about="&dogont;unitOfMeasure"/>
+    
+
+
     <!-- http://www.w3.org/2000/01/rdf-schema#label -->
 
     <owl:AnnotationProperty rdf:about="&rdfs;label"/>
@@ -3681,8 +3687,8 @@
         <rdf:type rdf:resource="&dogont;KNXNetIPGateway"/>
         <dogont:connectionTrials rdf:datatype="&xsd;int">0</dogont:connectionTrials>
         <dogont:connectionTimeOut rdf:datatype="&xsd;int">3</dogont:connectionTimeOut>
+        <dogont:port rdf:datatype="&xsd;int">3671</dogont:port>
         <dogont:IPAddress>192.168.125.26</dogont:IPAddress>
-        <dogont:port>3671</dogont:port>
         <dogont:individualAddress>1.1.1</dogont:individualAddress>
     </owl:NamedIndividual>
     
