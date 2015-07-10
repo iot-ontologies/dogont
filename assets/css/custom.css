@@ -1,0 +1,73 @@
+body {
+	font-family: 'Marvel', sans-serif;
+}
+
+.navbar-nav {
+	font-size: 20px;
+	padding-top: 5px;
+}
+
+.navbar-brand {
+	padding: 0px;
+}
+
+.scroll-md-fixed {
+	max-height: 400px;
+	overflow-y: auto;
+	overflow-x: auto;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+pre.prettyprint {
+	background-color: white;
+	border-width: 0px;
+}
+
+td.form-horizontal label
+{
+	padding-top:5px;
+}
+
+.spinner-container
+{
+	position: absolute;
+	left: 50%;
+	top:50%;
+	z-index: 10000;
+	color: navy;
+}
+
+#spinner
+{
+	display: none;
+}
+
+
+#map {
+	width: 100%;
+	border: 1px solid gray;
+	height: 691px;
+}
+
+@media (min-height: 768px) {
+  #map {
+    height: 691px;
+  }
+}
+@media (min-height: 800px) {
+  #map {
+    height: 720px;
+  }
+}
+@media (min-height: 1024px) {
+  #map {
+    height: 921px;
+  }
+}
+
+@media (min-height: 1080px) {
+  #map{
+    height: 972px;
+  }
+}
