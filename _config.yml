@@ -2,7 +2,8 @@
 title: DogOnt
 email: dario.bonino@gmail.com
 description: The DogOnt ontology documentation web site
-url: http://dogont.github.io
+url: http://iot-ontologies.github.io/dogont
+baseurl: http://iot-ontologies.github.io/dogont
 permalink: /:categories/:year/:title.html
 
 markdown: redcarpet
