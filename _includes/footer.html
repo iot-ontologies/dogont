@@ -1,13 +1,13 @@
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="assets/js/jquery-1.11.2.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/jquery-1.11.2.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/bootstrap.min.js"></script>
 
 {% if page.scripts %}
 <!-- found scripts -->
 {% for item in page.scripts %}
 <!-- {{item}} -->
-<script src="assets/js/{{item}}"></script>
+<script src="{{site.baseurl}}/assets/js/{{item}}"></script>
 {% endfor %}
 {% endif %}
