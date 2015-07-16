@@ -1,14 +1,30 @@
 body {
-	font-family: 'Marvel', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 .navbar-nav {
-	font-size: 20px;
-	padding-top: 5px;
+	font-size: 1.3em;
+	padding: 0px;
 }
 
 .navbar-brand {
-	padding: 0px;
+  padding-top: 0px;
+}
+
+.navbar-brand span{
+  padding-top: 15px;
+  padding-left: 5px;
+}
+
+.navbar-brand img
+{
+  height: 45px;
+  
+}
+
+iframe
+{
+  margin-top: 3em;
 }
 
 .scroll-md-fixed {
@@ -29,45 +45,3 @@ td.form-horizontal label
 	padding-top:5px;
 }
 
-.spinner-container
-{
-	position: absolute;
-	left: 50%;
-	top:50%;
-	z-index: 10000;
-	color: navy;
-}
-
-#spinner
-{
-	display: none;
-}
-
-
-#map {
-	width: 100%;
-	border: 1px solid gray;
-	height: 691px;
-}
-
-@media (min-height: 768px) {
-  #map {
-    height: 691px;
-  }
-}
-@media (min-height: 800px) {
-  #map {
-    height: 720px;
-  }
-}
-@media (min-height: 1024px) {
-  #map {
-    height: 921px;
-  }
-}
-
-@media (min-height: 1080px) {
-  #map{
-    height: 972px;
-  }
-}

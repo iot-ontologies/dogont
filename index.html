@@ -3,11 +3,67 @@ layout: default
 title: DogOnt
 ---
 <div class="row">
-	<div class="col-md-12">
-		<h1>The DogOnt ontology</h1>
+	<div class="col-md-10 col-md-offset-1 well">
+		<h3>Quick Overview</h3>
+		DogOnt was firstly introduced in 2008, and was originally meant to represent home automation devices for interoperability support. In the past years it underwent several reviews and amendments, and its scope was widened to include devices and technologies typically part of an indoor IoT network. If the original focus was more on modeling operational aspects enabling device control, the latest version, has moved to a more informed, modular and linked modeling approach which enables adoption of DogOnt-based representations at different abstraction layers. While device control and interoperability is still one of the pillars of the representation, extensibility, modularity and service-based representation of IoT entities empower the latest ontology, enabling modular integration and reconciliation of different specifications, e.g., the cluster-based ZigBee Home Automation model and the registry-based Modbus data representation. More attention is also devoted to the Linked Open Data initiative: the ontology is now listed in the Linked Open Vocabulary data set and its connections with well-known ontologies are being improved day by day.</p>   
 	</div>	
 </div>
 <div class="row">
-	<div class="col-md-12">
-	</div>		
+  <div class="col-md-3 col-md-offset-1">
+    <iframe src="https://www.slideshare.net/slideshow/embed_code/key/FOPuR7d8seSljd" width="400" height="339" frameborder="0" marginwidth="10" marginheight="0" scrolling="no"></iframe>
+  </div>
+    <div class="col-md-7">
+      <div class ="row">
+	<div class="col-md-6">
+	  <h3>Scope</h3>
+	  <p>The DogOnt ontology aims at offering a uniform, extensible model for all devices being part of a “local” Internet of Things inside a smart environment. Its major focus is on device modeling, for all the aspects needed to abstract device “capabilities” from low-level idiosyncrasies and communication issues. This enables both abstract reasoning on devices, e.g., to find similar devices or to identify the most suitable output to which forward urgent notifications, and actual integration of different technologies, and paradigms.</p>
+	  <p>It mainly allows to describe</p>
+	    <ul>
+	      <li>Where a (smart) device is located;</li>
+	      <li>The set of capabilities of a device;</li>
+	      <li>The technology-specific features needed to interface the device;</li>
+	      <li>The possible configurations that the device can assume (states);</li>
+	      <li>How the smart environment is composed;</li>
+	      <li>What kind of architectural elements and furniture are placed within.</li>
+	  </ul>
+	</div>
+	<div class="col-md-6">
+	  <h3>News</h3>
+	  <ul>
+		{% for post in site.posts %} {%if forloop.index0 < 5 %}
+		<li>{{ post.date | date: "%-d %B %Y" }} - {{post.title}}, <a href="{{post.url}}">more...</a></li> 
+		{% endif %} {% endfor %}
+	  </ul>
+	</div>
+      </div>
+      <div class="row">
+	<div class="col-md-6">
+	  <h3>License</h3>
+	  <p> DogOnt is<br/>
+	    Licensed under the Apache License, Version 2.0</br>
+	    you may not use the ontology except in compliance with the License.<br/>
+	    You may obtain a copy of the License at<br/>
+
+	    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+	</div>
+	<div class="col-md-6">
+	  <h3>Contributors and contacts</h3>
+	  <div class="row">
+	    {% for member in site.data.members %}
+	    <div class="col-md-6 profile">
+	      <img src="{{member.image}}" class="img-circle"/><br/>
+	      <strong> {{ member.name }} </strong>
+	      <br/>
+		{{ member.description }}
+	    </div>
+	    {% if forloop.index == 2 %}
+	    <div class="clearfix"></div>
+	    {% endif %}
+	    {% endfor %}
+	 </div>
+	</div>
+      </div>
+     </div>
+  </div>
 </div>
+

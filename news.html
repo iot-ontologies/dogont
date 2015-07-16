@@ -1,0 +1,19 @@
+---
+layout: default
+---
+{% for post in site.posts %} 
+<div class="row">
+<div class="col-md-10 col-md-offset-1 well">
+
+  <header class="post-header">
+    <h3 class="post-title">{{ post.title }}</h3>
+    <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% endif %}{% if post.meta %} • {{ post.meta }}{% endif %}</p>
+  </header>
+
+  <article class="post-content">
+    {{ post.content }}
+  </article>
+
+</div>
+</div>
+{% endfor %}
