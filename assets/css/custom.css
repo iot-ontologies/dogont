@@ -45,3 +45,8 @@ td.form-horizontal label
 	padding-top:5px;
 }
 
+.well-margin-both
+{
+	margin-right: 10px;
+	margin-left: 10px;
+}
