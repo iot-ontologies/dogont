@@ -4693,6 +4693,31 @@ limitations under the License
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#DeviceDiscoveredNotification">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#BluetoothNotification"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">discoveredDevice</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">discoveredDeviceMac^^String</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">discoveredDeviceName^^String</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">discoveredDeviceRSSI^^int</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
