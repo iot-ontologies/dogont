@@ -648,6 +648,12 @@ limitations under the License
     
 
 
+    <!-- http://elite.polito.it/ontologies/dogont.owl#BluetoothProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#BluetoothProperty"/>
+    
+
+
     <!-- http://elite.polito.it/ontologies/dogont.owl#EchelonIlon100Property -->
 
     <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#EchelonIlon100Property">
@@ -727,6 +733,16 @@ limitations under the License
     
 
 
+    <!-- http://elite.polito.it/ontologies/dogont.owl#MacAddress -->
+
+    <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#MacAddress">
+        <rdfs:subPropertyOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#BluetoothProperty"/>
+        <rdfs:domain rdf:resource="http://elite.polito.it/ontologies/dogont.owl#BluetoothComponent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://elite.polito.it/ontologies/dogont.owl#ModBusProperty -->
 
     <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#ModBusProperty">
@@ -776,6 +792,23 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#buttonID -->
 
     <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#buttonID">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#characteristicUUID -->
+
+    <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#characteristicUUID">
+        <rdfs:subPropertyOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#BluetoothProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#BluetoothCommand"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#BluetoothNotification"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
@@ -1289,6 +1322,23 @@ limitations under the License
             </owl:Class>
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#serviceUUID -->
+
+    <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#serviceUUID">
+        <rdfs:subPropertyOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#BluetoothProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#BluetoothCommand"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#BluetoothNotification"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
 
@@ -2330,6 +2380,56 @@ limitations under the License
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#BlueStateValue">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#BluetoothAdapter -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#BluetoothAdapter">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#BluetoothComponent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#DeviceDiscoveryNotificationFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#DiscoveryFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#DiscoveryState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#BluetoothCommand -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#BluetoothCommand">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#NetworkSpecificCommand"/>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#BluetoothComponent -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#BluetoothComponent">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#NetworkComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#BluetoothNotification -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#BluetoothNotification">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#NetworkSpecificNotification"/>
     </owl:Class>
     
 
@@ -4583,6 +4683,28 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#IdleStateValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#DeviceDiscoveredNotification -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#DeviceDiscoveredNotification">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#BluetoothNotification"/>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#DeviceDiscoveryNotificationFunctionality -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#DeviceDiscoveryNotificationFunctionality">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#DiscoveryNotificationFunctionality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasNotification"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#DeviceDiscoveredNotification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
