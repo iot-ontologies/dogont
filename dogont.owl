@@ -698,6 +698,7 @@ limitations under the License
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#KNXNetIPGateway"/>
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#KonnexGateway"/>
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#ModbusGateway"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#ZWaveGateway"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -728,16 +729,6 @@ limitations under the License
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://elite.polito.it/ontologies/dogont.owl#MacAddress -->
-
-    <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#MacAddress">
-        <rdfs:subPropertyOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#BluetoothProperty"/>
-        <rdfs:domain rdf:resource="http://elite.polito.it/ontologies/dogont.owl#BluetoothComponent"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
@@ -784,6 +775,15 @@ limitations under the License
     <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#address">
         <rdfs:subPropertyOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnOceanProperty"/>
         <rdfs:domain rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnOceanComponent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#axisID -->
+
+    <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#axisID">
+        <rdfs:domain rdf:resource="http://elite.polito.it/ontologies/dogont.owl#StateValue"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
@@ -1008,6 +1008,22 @@ limitations under the License
     
 
 
+    <!-- http://elite.polito.it/ontologies/dogont.owl#macAddress -->
+
+    <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#macAddress">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#BluetoothComponent"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#PlugwiseComponent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://elite.polito.it/ontologies/dogont.owl#mode -->
 
     <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#mode">
@@ -1070,6 +1086,26 @@ limitations under the License
 
     <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#notificationParamName">
         <rdfs:domain rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#password -->
+
+    <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#password">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#BTicinoGateway"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#EchelonIlon100Gateway"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#KNXNetIPGateway"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#KonnexGateway"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#ModbusGateway"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#ZWaveGateway"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
@@ -1142,29 +1178,13 @@ limitations under the License
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#KonnexGateway"/>
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#ModbusGateway"/>
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#WMBusGateway"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#ZWaveGateway"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The port of the gateway</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">port</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://elite.polito.it/ontologies/dogont.owl#probeID -->
-
-    <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#probeID">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultipleFlowRateStateValue"/>
-                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultiplePressureStateValue"/>
-                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultipleTemperatureStateValue"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
 
@@ -1322,6 +1342,23 @@ limitations under the License
             </owl:Class>
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#sensorID -->
+
+    <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#sensorID">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultipleFlowRateStateValue"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultiplePressureStateValue"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultipleTemperatureStateValue"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
 
@@ -1501,6 +1538,26 @@ limitations under the License
     
 
 
+    <!-- http://elite.polito.it/ontologies/dogont.owl#username -->
+
+    <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#username">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#BTicinoGateway"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#EchelonIlon100Gateway"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#KNXNetIPGateway"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#KonnexGateway"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#ModbusGateway"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#ZWaveGateway"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://elite.polito.it/ontologies/dogont.owl#weekDay -->
 
     <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#weekDay">
@@ -1533,6 +1590,21 @@ limitations under the License
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#AccelerationStateValue -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#AccelerationStateValue">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#axisID"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
@@ -1596,7 +1668,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#ActiveEnergyStateValue -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ActiveEnergyStateValue">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyStateValue"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#phaseID"/>
@@ -1627,7 +1699,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#ActivePowerMeasurementNotificationFunctionality -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ActivePowerMeasurementNotificationFunctionality">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricPowerMeasurementNotificationFunctionality"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementNotificationFunctionality"/>
     </owl:Class>
     
 
@@ -1635,7 +1707,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#ActivePowerMeasurementState -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ActivePowerMeasurementState">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricPowerMeasurementState"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementState"/>
     </owl:Class>
     
 
@@ -1651,7 +1723,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#ActivePowerStateValue -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ActivePowerStateValue">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerStateValue"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#phaseID"/>
@@ -1836,7 +1908,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#ApparentPowerMeasurementNotificationFunctionality -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ApparentPowerMeasurementNotificationFunctionality">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricPowerMeasurementNotificationFunctionality"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementNotificationFunctionality"/>
     </owl:Class>
     
 
@@ -1844,7 +1916,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#ApparentPowerMeasurementState -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ApparentPowerMeasurementState">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricPowerMeasurementState"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementState"/>
     </owl:Class>
     
 
@@ -1860,7 +1932,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#ApparentPowerStateValue -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ApparentPowerStateValue">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerStateValue"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#phaseID"/>
@@ -1928,6 +2000,7 @@ limitations under the License
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HousePlants"/>
+        <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleOnOffState"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Durable goods for home or office use</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Appliances</rdfs:label>
     </owl:Class>
@@ -2648,6 +2721,156 @@ limitations under the License
     
 
 
+    <!-- http://elite.polito.it/ontologies/dogont.owl#CC2650HumiditySensor -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#CC2650HumiditySensor">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TemperatureAndHumiditySensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#CC2650IRSensor -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#CC2650IRSensor">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleTemperatureSensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#CC2650SensorTag -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#CC2650SensorTag">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Wearable"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ButtonMNotificationFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HumidityMeasurementFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HumidityMeasurementNotificationFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#LightSensingFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#LuminosityNotificationFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleTemperatureMeasurementFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleTemperatureMeasurementNotificationFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#OnOffFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PressureMeasurementFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PressureMeasurementNotificationFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TridimensionalAccelerationNotificationFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TridimensionalGyroscopeNotificationFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TridimensionalMagnetometerNotificationFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HumidityMeasurementState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#LightIntensityState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleOnOffState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleTemperatureState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PressureState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TridimensionalAccelerationState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TridimensionalGyroscopeState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TridimensionalMagnetometerState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
     <!-- http://elite.polito.it/ontologies/dogont.owl#CDStateValue -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#CDStateValue">
@@ -3269,7 +3492,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#ColdWaterM3MeasurementNotification -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ColdWaterM3MeasurementNotification">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeMeasurementNotification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
@@ -3643,7 +3866,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#ConsumedWaterStateValue -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ConsumedWaterStateValue">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeStateValue"/>
     </owl:Class>
     
 
@@ -5572,22 +5795,6 @@ limitations under the License
     
 
 
-    <!-- http://elite.polito.it/ontologies/dogont.owl#ElectricPowerMeasurementNotificationFunctionality -->
-
-    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ElectricPowerMeasurementNotificationFunctionality">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousNotificationFunctionality"/>
-    </owl:Class>
-    
-
-
-    <!-- http://elite.polito.it/ontologies/dogont.owl#ElectricPowerMeasurementState -->
-
-    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ElectricPowerMeasurementState">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousState"/>
-    </owl:Class>
-    
-
-
     <!-- http://elite.polito.it/ontologies/dogont.owl#ElectricalCooker -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ElectricalCooker">
@@ -5824,6 +6031,14 @@ limitations under the License
     
 
 
+    <!-- http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementNotification -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementNotification">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+    </owl:Class>
+    
+
+
     <!-- http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementNotificationFunctionality -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementNotificationFunctionality">
@@ -5836,6 +6051,12 @@ limitations under the License
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementState">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousState"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyStateValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -5853,6 +6074,14 @@ limitations under the License
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#EnergyMeteringPowerOutlet">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MainsPowerOutlet"/>
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SinglePhaseEnergyMeter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#EnergyStateValue -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#EnergyStateValue">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
     </owl:Class>
     
 
@@ -6750,7 +6979,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#GasM3MeasurementNotification -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#GasM3MeasurementNotification">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeMeasurementNotification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
@@ -8004,6 +8233,39 @@ limitations under the License
     
 
 
+    <!-- http://elite.polito.it/ontologies/dogont.owl#GetMultipleEnergyCommand -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#GetMultipleEnergyCommand">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#NonVoidCommand"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricCommand"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#commandParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sensorID^^String</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#realCommandName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">getEnergyValue</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#returnType"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Measure</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#nParams"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
     <!-- http://elite.polito.it/ontologies/dogont.owl#GetOccupancyCommand -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#GetOccupancyCommand">
@@ -8060,6 +8322,27 @@ limitations under the License
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ZoomInCommand"/>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ZoomOutCommand"/>
         <rdfs:comment xml:lang="en">the command for getting the occupancy state of a given room/environment</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#GetPowerCommand -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#GetPowerCommand">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#NonParametricCommand"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#NonVoidCommand"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#realCommandName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">getPowerValue</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#returnType"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Measure</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -8364,6 +8647,39 @@ limitations under the License
     
 
 
+    <!-- http://elite.polito.it/ontologies/dogont.owl#GetSubstanceVolumeMCommand -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#GetSubstanceVolumeMCommand">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#NonVoidCommand"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricCommand"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#commandParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sensorID^^String</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#realCommandName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">getSubstanceVolumeFrom</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#returnType"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Measure</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#nParams"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
     <!-- http://elite.polito.it/ontologies/dogont.owl#GetTemperatureCommand -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#GetTemperatureCommand">
@@ -8641,12 +8957,35 @@ limitations under the License
     
 
 
+    <!-- http://elite.polito.it/ontologies/dogont.owl#GyroscopeStateValue -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#GyroscopeStateValue">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#axisID"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
     <!-- http://elite.polito.it/ontologies/dogont.owl#HVACSystem -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#HVACSystem">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HousePlants"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Heating Ventilating and Air Conditioning system</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HVACSystem</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#HealthTemperatureSensor -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#HealthTemperatureSensor">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SingleTemperatureSensor"/>
     </owl:Class>
     
 
@@ -8704,6 +9043,105 @@ limitations under the License
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#UpCommand"/>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ZoomInCommand"/>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ZoomOutCommand"/>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#HeatEnergyCalculator -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#HeatEnergyCalculator">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Meter"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#FlowMeasurementFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#FlowMeasurementNotificationFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleEnergyMeasurementFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleEnergyMeasurementNotificationFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleTemperatureMeasurementFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleTemperatureMeasurementNotificationFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleWaterVolumeMeasurementFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleWaterVolumeMeasurementNotificationFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SinglePowerMeasurementFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SinglePowerMeasurementNotificationFuncionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#FlowRateState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleEnergyMeasurementState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleTemperatureState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleWaterVolumeMeasurementState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -8963,7 +9401,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#HeatingEnergyMeasurementNotification -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#HeatingEnergyMeasurementNotification">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementNotification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
@@ -8994,20 +9432,6 @@ limitations under the License
     
 
 
-    <!-- http://elite.polito.it/ontologies/dogont.owl#HeatingEnergyMeasurementState -->
-
-    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#HeatingEnergyMeasurementState">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousState"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
-                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HeatingEnergyStateValue"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
     <!-- http://elite.polito.it/ontologies/dogont.owl#HeatingEnergyMeter -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#HeatingEnergyMeter">
@@ -9027,17 +9451,9 @@ limitations under the License
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
-                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HeatingEnergyMeasurementState"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementState"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://elite.polito.it/ontologies/dogont.owl#HeatingEnergyStateValue -->
-
-    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#HeatingEnergyStateValue">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
     </owl:Class>
     
 
@@ -9199,7 +9615,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#HotWaterM3MeasurementNotification -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#HotWaterM3MeasurementNotification">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeMeasurementNotification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
@@ -10613,6 +11029,21 @@ limitations under the License
     
 
 
+    <!-- http://elite.polito.it/ontologies/dogont.owl#MagnetometerStateValue -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MagnetometerStateValue">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#axisID"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
     <!-- http://elite.polito.it/ontologies/dogont.owl#MainsPowerOutlet -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MainsPowerOutlet">
@@ -10910,7 +11341,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#MultiTariffActiveEnergyStateValue -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultiTariffActiveEnergyStateValue">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyStateValue"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#tariffID"/>
@@ -10938,7 +11369,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#MultiTariffReactiveEnergyStateValue -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultiTariffReactiveEnergyStateValue">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyStateValue"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#tariffID"/>
@@ -10972,7 +11403,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#MultiTariffSinglePhaseActiveEnergyMeasurementNotification -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultiTariffSinglePhaseActiveEnergyMeasurementNotification">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementNotification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#nParams"/>
@@ -11018,7 +11449,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#MultiTariffSinglePhaseActiveEnergyState -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultiTariffSinglePhaseActiveEnergyState">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementState"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleEnergyMeasurementState"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
@@ -11091,7 +11522,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#MultiTariffSinglePhaseReactiveEnergyMeasurementNotification -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultiTariffSinglePhaseReactiveEnergyMeasurementNotification">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementNotification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#nParams"/>
@@ -11137,7 +11568,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#MultiTariffSinglePhaseReactiveEnergyState -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultiTariffSinglePhaseReactiveEnergyState">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementState"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleEnergyMeasurementState"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
@@ -11166,7 +11597,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#MultiTariffThreePhaseActiveEnergyMeasurementNotification -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultiTariffThreePhaseActiveEnergyMeasurementNotification">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementNotification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#nParams"/>
@@ -11218,7 +11649,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#MultiTariffThreePhaseActiveEnergyState -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultiTariffThreePhaseActiveEnergyState">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementState"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleEnergyMeasurementState"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
@@ -11291,7 +11722,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#MultiTariffThreePhaseReactiveEnergyMeasurementNotification -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultiTariffThreePhaseReactiveEnergyMeasurementNotification">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementNotification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#nParams"/>
@@ -11343,7 +11774,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#MultiTariffThreePhaseReactiveEnergyState -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultiTariffThreePhaseReactiveEnergyState">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementState"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleEnergyMeasurementState"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
@@ -11389,6 +11820,81 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasNotification"/>
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleAlertNotification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#MultipleEnergyMeasurementFunctionality -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultipleEnergyMeasurementFunctionality">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementFunctionality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasCommand"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#GetMultipleEnergyCommand"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#MultipleEnergyMeasurementNotification -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultipleEnergyMeasurementNotification">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementNotification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#nParams"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">newEnergyValue</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sensorID^^String</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">value^^Measure</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#MultipleEnergyMeasurementNotificationFunctionality -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultipleEnergyMeasurementNotificationFunctionality">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementNotificationFunctionality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasNotification"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleEnergyMeasurementNotification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#MultipleEnergyMeasurementState -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultipleEnergyMeasurementState">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementState"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyStateValue"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -11489,7 +11995,7 @@ limitations under the License
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#probeID"/>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#sensorID"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -11580,7 +12086,7 @@ limitations under the License
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</owl:qualifiedCardinality>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
                 <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#DiscreteValue"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -11588,6 +12094,38 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#buttonID"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#MultiplePowerMeasurementNotification -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultiplePowerMeasurementNotification">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementNotification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#nParams"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">newPowerValue</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sensorID^^String</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">value^^Measure</owl:hasValue>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -11669,7 +12207,8 @@ limitations under the License
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
-                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minCardinality>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultiplePressureStateValue"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -11682,7 +12221,7 @@ limitations under the License
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#probeID"/>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#sensorID"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -11777,6 +12316,13 @@ limitations under the License
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleTemperatureStateValue"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleTemperatureStateValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Models the temperature value</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MultipleTemperatureState</rdfs:label>
     </owl:Class>
@@ -11789,7 +12335,71 @@ limitations under the License
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#probeID"/>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#sensorID"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#MultipleWaterVolumeMeasurementFunctionality -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultipleWaterVolumeMeasurementFunctionality">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeMeasurementFunctionality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasCommand"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#GetSubstanceVolumeMCommand"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Measures volumes of substances flowing through duct or pipes (originally inserted for modeling the Kamstrup Multical 602)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#MultipleWaterVolumeMeasurementNotificationFunctionality -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultipleWaterVolumeMeasurementNotificationFunctionality">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeMeasurementNotificationFunctionality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasNotification"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#WaterVolumeMeasurementMNotification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#MultipleWaterVolumeMeasurementState -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultipleWaterVolumeMeasurementState">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeMeasurementState"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleWaterVolumeStateValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleWaterVolumeStateValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#MultipleWaterVolumeStateValue -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultipleWaterVolumeStateValue">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeStateValue"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#sensorID"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -13808,6 +14418,22 @@ limitations under the License
     
 
 
+    <!-- http://elite.polito.it/ontologies/dogont.owl#PlugwiseComponent -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#PlugwiseComponent">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#NetworkComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#PlugwiseGateway -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#PlugwiseGateway">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PlugwiseComponent"/>
+    </owl:Class>
+    
+
+
     <!-- http://elite.polito.it/ontologies/dogont.owl#PowerDelivery -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#PowerDelivery">
@@ -13920,6 +14546,36 @@ limitations under the License
     
 
 
+    <!-- http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementNotification -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementNotification">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementNotificationFunctionality -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementNotificationFunctionality">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousNotificationFunctionality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementState -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementState">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousState"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerStateValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
     <!-- http://elite.polito.it/ontologies/dogont.owl#PowerMeter -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#PowerMeter">
@@ -13942,6 +14598,14 @@ limitations under the License
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#PowerMeteringPowerOutlet">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MainsPowerOutlet"/>
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SinglePhaseActivePowerMeter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#PowerStateValue -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#PowerStateValue">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
     </owl:Class>
     
 
@@ -14802,7 +15466,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#ReactiveEnergyStateValue -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ReactiveEnergyStateValue">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyStateValue"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#phaseID"/>
@@ -14826,7 +15490,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#ReactivePowerMeasurementNotificationFunctionality -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ReactivePowerMeasurementNotificationFunctionality">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricPowerMeasurementNotificationFunctionality"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementNotificationFunctionality"/>
     </owl:Class>
     
 
@@ -14834,7 +15498,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#ReactivePowerMeasurementState -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ReactivePowerMeasurementState">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricPowerMeasurementState"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementState"/>
     </owl:Class>
     
 
@@ -14850,7 +15514,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#ReactivePowerStateValue -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ReactivePowerStateValue">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerStateValue"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#phaseID"/>
@@ -16433,7 +17097,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#SinglePhaseActiveEnergyMeasurementNotification -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SinglePhaseActiveEnergyMeasurementNotification">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementNotification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
@@ -16522,7 +17186,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#SinglePhaseActivePowerMeasurementNotification -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SinglePhaseActivePowerMeasurementNotification">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementNotification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
@@ -16610,7 +17274,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#SinglePhaseApparentPowerMeasurementNotification -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SinglePhaseApparentPowerMeasurementNotification">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementNotification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
@@ -16852,7 +17516,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#SinglePhaseReactiveEnergyMeasurementNotification -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SinglePhaseReactiveEnergyMeasurementNotification">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementNotification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
@@ -16921,7 +17585,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#SinglePhaseReactivePowerMeasurementNotification -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SinglePhaseReactivePowerMeasurementNotification">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementNotification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
@@ -17074,6 +17738,54 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#VoltageStateValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#SinglePowerMeasurementFunctionality -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SinglePowerMeasurementFunctionality">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementFunctionality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasCommand"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#GetPowerCommand"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#SinglePowerMeasurementNotification -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SinglePowerMeasurementNotification">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementNotification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">newPowerValue</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">value^^Measure</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#SinglePowerMeasurementNotificationFuncionality -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SinglePowerMeasurementNotificationFuncionality">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementNotificationFunctionality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasNotification"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SinglePowerMeasurementNotification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -18397,6 +19109,47 @@ An electronic device producing a similar sound as a signal or warning: a police 
     
 
 
+    <!-- http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeMeasurementFunctionality -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeMeasurementFunctionality">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#QueryFunctionality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeMeasurementNotification -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeMeasurementNotification">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The total volume either in liters or cubic meters of a substance typically flowing through some ducts (or pipes).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeMeasurementNotificationFunctionality -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeMeasurementNotificationFunctionality">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousNotificationFunctionality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeMeasurementState -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeMeasurementState">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeStateValue -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeStateValue">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
+    </owl:Class>
+    
+
+
     <!-- http://elite.polito.it/ontologies/dogont.owl#SuperCoolingFunctionality -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SuperCoolingFunctionality">
@@ -19124,7 +19877,7 @@ An electronic device producing a similar sound as a signal or warning: a police 
     <!-- http://elite.polito.it/ontologies/dogont.owl#ThreePhaseActiveEnergyMeasurementNotification -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ThreePhaseActiveEnergyMeasurementNotification">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementNotification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#nParams"/>
@@ -19199,7 +19952,7 @@ An electronic device producing a similar sound as a signal or warning: a police 
     <!-- http://elite.polito.it/ontologies/dogont.owl#ThreePhaseActivePowerMeasurementNotification -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ThreePhaseActivePowerMeasurementNotification">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementNotification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#nParams"/>
@@ -19306,7 +20059,7 @@ An electronic device producing a similar sound as a signal or warning: a police 
     <!-- http://elite.polito.it/ontologies/dogont.owl#ThreePhaseApparentPowerMeasurementNotification -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ThreePhaseApparentPowerMeasurementNotification">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementNotification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#nParams"/>
@@ -19631,7 +20384,7 @@ An electronic device producing a similar sound as a signal or warning: a police 
     <!-- http://elite.polito.it/ontologies/dogont.owl#ThreePhaseReactiveEnergyMeasurementNotification -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ThreePhaseReactiveEnergyMeasurementNotification">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementNotification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#nParams"/>
@@ -19706,7 +20459,7 @@ An electronic device producing a similar sound as a signal or warning: a police 
     <!-- http://elite.polito.it/ontologies/dogont.owl#ThreePhaseReactivePowerMeasurementNotification -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ThreePhaseReactivePowerMeasurementNotification">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementNotification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#nParams"/>
@@ -20057,19 +20810,19 @@ An electronic device producing a similar sound as a signal or warning: a police 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
-                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">accX^^Double</owl:hasValue>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">accX^^Measure</owl:hasValue>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
-                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">accY^^Double</owl:hasValue>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">accY^^Measure</owl:hasValue>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
-                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">accZ^^Double</owl:hasValue>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">accZ^^Measure</owl:hasValue>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -20084,6 +20837,143 @@ An electronic device producing a similar sound as a signal or warning: a police 
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasNotification"/>
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TridimensionalAccelerationNotification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#TridimensionalAccelerationState -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#TridimensionalAccelerationState">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousState"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#AccelerationStateValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#TridimensionalGyroscopeNotification -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#TridimensionalGyroscopeNotification">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new3DGyroscopeValue</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gyroX^^Measure</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gyroY^^Measure</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gyroZ^^Measure</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#TridimensionalGyroscopeNotificationFunctionality -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#TridimensionalGyroscopeNotificationFunctionality">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousNotificationFunctionality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasNotification"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TridimensionalGyroscopeNotification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#TridimensionalGyroscopeState -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#TridimensionalGyroscopeState">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousState"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#GyroscopeStateValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#TridimensionalMagnetometerNotification -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#TridimensionalMagnetometerNotification">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new3DMagnetometerValue</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">magX^^Measure</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">magY^^Measure</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">magZ^^Measure</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#TridimensionalMagnetometerNotificationFunctionality -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#TridimensionalMagnetometerNotificationFunctionality">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousNotificationFunctionality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasNotification"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TridimensionalMagnetometerNotification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#TridimensionalMagnetometerState -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#TridimensionalMagnetometerState">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousState"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MagnetometerStateValue"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -20890,7 +21780,7 @@ An electronic device producing a similar sound as a signal or warning: a police 
     <!-- http://elite.polito.it/ontologies/dogont.owl#WaterConsumptionMeasurementFuctionality -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#WaterConsumptionMeasurementFuctionality">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#QueryFunctionality"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeMeasurementFunctionality"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasCommand"/>
@@ -20910,7 +21800,7 @@ An electronic device producing a similar sound as a signal or warning: a police 
     <!-- http://elite.polito.it/ontologies/dogont.owl#WaterConsumptionMeasurementNotificationFunctionality -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#WaterConsumptionMeasurementNotificationFunctionality">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousNotificationFunctionality"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeMeasurementNotificationFunctionality"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasNotification"/>
@@ -20956,13 +21846,68 @@ An electronic device producing a similar sound as a signal or warning: a police 
     <!-- http://elite.polito.it/ontologies/dogont.owl#WaterMeasurementState -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#WaterMeasurementState">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousState"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeMeasurementState"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ConsumedWaterStateValue"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#WaterVolumeMeasurementMNotification -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#WaterVolumeMeasurementMNotification">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeMeasurementNotification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">newWaterVolumeAmount</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sensorID^^String</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">waterVolume^^Measure</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Ideally would be better as subclass of WaterVolumeMeasurementNotification but it makes code generation more difficult</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#WaterVolumeMeasurementNotification -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#WaterVolumeMeasurementNotification">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SubstanceVolumeMeasurementNotification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">newWaterVolumeAmount</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">waterVolume^^Measure</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#Wearable -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#Wearable">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Controllable"/>
     </owl:Class>
     
 
@@ -21338,7 +22283,7 @@ It mus be noticed that the functionality modeling uses existential quantifiers f
     <!-- http://elite.polito.it/ontologies/dogont.owl#eZ430Chronos -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#eZ430Chronos">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Clock"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Wearable"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
@@ -21594,10 +22539,10 @@ It mus be noticed that the functionality modeling uses existential quantifiers f
             <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#phaseID"/>
             <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#pollingInterval"/>
             <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#port"/>
-            <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#probeID"/>
             <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#realCommandName"/>
             <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#realStateValue"/>
             <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#returnType"/>
+            <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#sensorID"/>
             <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#sleepTime"/>
             <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#stepValue"/>
             <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#svgFootprint"/>
