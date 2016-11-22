@@ -6,6 +6,6 @@ url: http://iot-ontologies.github.io/dogont
 baseurl: /dogont
 permalink: /:categories/:year/:title.html
 
-highlighter: pygments
+highlighter: rouge
 
 
