@@ -6967,7 +6967,7 @@ limitations under the License
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
-                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">newFrequencyValue</owl:hasValue>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">newPulseFrequencyValue</owl:hasValue>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
