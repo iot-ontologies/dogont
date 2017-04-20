@@ -6950,12 +6950,6 @@ limitations under the License
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#FrequencyMeasurementFunctionality">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#QueryFunctionality"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasCommand"/>
-                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#GetFrequencyCommand"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -6964,18 +6958,6 @@ limitations under the License
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#FrequencyMeasurementNotification">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
-                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">newPulseFrequencyValue</owl:hasValue>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
-                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">frequency^^Measure</owl:hasValue>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -6984,12 +6966,6 @@ limitations under the License
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#FrequencyMeasurementNotificationFunctionality">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousNotificationFunctionality"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasNotification"/>
-                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#FrequencyMeasurementNotification"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -7015,13 +6991,13 @@ limitations under the License
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
-                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#FrequencyMeasurementFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SimpleFrequencyMeasurementFunctionality"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
-                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#FrequencyMeasurementNotificationFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SimpleFrequencyMeasurementNotificationFunctionality"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -15632,6 +15608,18 @@ limitations under the License
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#PulseFrequencyMeasurementNotification">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#FrequencyMeasurementNotification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">newPulseFrequencyValue</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">frequency^^Measure</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -17645,6 +17633,54 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#UpTripleStateValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#SimpleFrequencyMeasurementFunctionality -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SimpleFrequencyMeasurementFunctionality">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#FrequencyMeasurementFunctionality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasCommand"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#GetFrequencyCommand"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#SimpleFrequencyMeasurementNotification -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SimpleFrequencyMeasurementNotification">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#FrequencyMeasurementNotification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">newFrequencyValue</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">frequency^^Measure</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#SimpleFrequencyMeasurementNotificationFunctionality -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SimpleFrequencyMeasurementNotificationFunctionality">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#FrequencyMeasurementNotificationFunctionality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasNotification"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#FrequencyMeasurementNotification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
