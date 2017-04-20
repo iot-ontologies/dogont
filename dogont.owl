@@ -1189,6 +1189,16 @@ limitations under the License
     
 
 
+    <!-- http://elite.polito.it/ontologies/dogont.owl#protocolVariant -->
+
+    <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#protocolVariant">
+        <rdfs:subPropertyOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ModBusProperty"/>
+        <rdfs:domain rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ModbusComponent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://elite.polito.it/ontologies/dogont.owl#realCommandName -->
 
     <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#realCommandName">
@@ -1352,6 +1362,7 @@ limitations under the License
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#EnergyStateValue"/>
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultipleFlowRateStateValue"/>
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultiplePressureStateValue"/>
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultipleTemperatureStateValue"/>
@@ -6082,6 +6093,12 @@ limitations under the License
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#EnergyStateValue">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#sensorID"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
