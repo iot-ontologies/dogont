@@ -37,7 +37,6 @@ This information can then be leveraged by inference-based intelligent systems to
         <owl:priorVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3.2.11</owl:priorVersion>
         <foaf:primaryTopic rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Domotic Systems</foaf:primaryTopic>
         <terms:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DogOnt: Ontology Modeling for Intelligent Domotic Environments</terms:title>
-        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3.2.13</owl:versionInfo>
         <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2008-01-01</terms:issued>
         <cc:license rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
 Copyright (c) 2008-2014 Dario Bonino
@@ -57,6 +56,7 @@ limitations under the License
         <terms:rights rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Copyright(c) 2008-2016 Dario Bonino</terms:rights>
         <vann:preferredNamespaceUri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://elite.polito.it/ontologies/dogont</vann:preferredNamespaceUri>
         <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2016-01-14</terms:modified>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0.0</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -187,6 +187,12 @@ limitations under the License
     
 
 
+    <!-- http://elite.polito.it/ontologies/dogont.owl#belongsTo -->
+
+    <owl:ObjectProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+    
+
+
     <!-- http://elite.polito.it/ontologies/dogont.owl#ceilingOf -->
 
     <owl:ObjectProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#ceilingOf">
@@ -232,7 +238,7 @@ limitations under the License
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#Appliances"/>
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#BuildingEnvironment"/>
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#Furniture"/>
-                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#HousePlants"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#TechnicalSystem"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
@@ -509,7 +515,7 @@ limitations under the License
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#Appliances"/>
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#BuildingEnvironment"/>
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#Furniture"/>
-                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#HousePlants"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#TechnicalSystem"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -1635,7 +1641,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#Acoustic -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#Acoustic">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Actuator"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#isIn"/>
@@ -1762,7 +1768,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#Actuator -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#Actuator">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SmartDevice"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#isIn"/>
@@ -1778,7 +1784,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#AirConditioningSystem -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#AirConditioningSystem">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Actuator"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
@@ -1813,6 +1819,13 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#CompositeThermostat"/>
@@ -2003,15 +2016,15 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#Appliances -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#Appliances">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Controllable"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SmartDevice"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#isIn"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HousePlants"/>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MultipleOnOffState"/>
+        <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TechnicalSystem"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Durable goods for home or office use</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Appliances</rdfs:label>
     </owl:Class>
@@ -2021,7 +2034,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#Architectural -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#Architectural">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#UnControllable"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#BuildingThing"/>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Furniture"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">All the architectural elements that compose the environment</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Architectural</rdfs:label>
@@ -2257,6 +2270,13 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#actuatorOf"/>
                 <owl:allValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Awning"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#DoorActuator"/>
@@ -2617,6 +2637,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#BuildingEnvironment -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#BuildingEnvironment">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Environment"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A physical environment in which people lives, e.g. kitchen, bathroom</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BuildingEnvironment</rdfs:label>
     </owl:Class>
@@ -2626,6 +2647,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#BuildingThing -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#BuildingThing">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#UnControllable"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">All things that creates a Building, it is intended as root of all building components</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BuildingThing</rdfs:label>
     </owl:Class>
@@ -2646,6 +2668,13 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#OnOffState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#CompositeThermostat"/>
@@ -3481,6 +3510,20 @@ limitations under the License
                 <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Co2MeasurementState"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -3745,7 +3788,6 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#CompositeThermostat -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#CompositeThermostat">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Thermostat"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -3940,7 +3982,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#Control -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#Control">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SmartDevice"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
@@ -3981,7 +4023,7 @@ limitations under the License
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#Controllable">
         <owl:equivalentClass rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#Device"/>
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#BuildingThing"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:complementOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#UnControllable"/>
@@ -5474,6 +5516,13 @@ limitations under the License
                 <owl:allValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Door"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#GateActuator"/>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Pump"/>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ShadeActuator"/>
@@ -5488,7 +5537,6 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#DoorSensor -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#DoorSensor">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#AntiIntrusionSystem"/>
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Sensor"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -5518,6 +5566,13 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#sensorOf"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#AccessControlSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#FloodSensor"/>
@@ -5832,7 +5887,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HousePlants"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TechnicalSystem"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Utility that provides electricity</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ElectricalSystem</rdfs:label>
     </owl:Class>
@@ -5843,6 +5898,13 @@ limitations under the License
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ElectricityMeter">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Meter"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -6119,6 +6181,14 @@ limitations under the License
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#Entrance">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#Environment -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#Environment">
+        <owl:equivalentClass rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalPlace"/>
     </owl:Class>
     
 
@@ -6466,7 +6536,6 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#FloodSensor -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#FloodSensor">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#FloodSystem"/>
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Sensor"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -6484,6 +6553,13 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#FloodSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#GasSensor"/>
@@ -6658,6 +6734,20 @@ limitations under the License
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#FlowSensor">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -6916,7 +7006,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#Furniture -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#Furniture">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#UnControllable"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#BuildingThing"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#isIn"/>
@@ -7083,6 +7173,13 @@ limitations under the License
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#GasMeasurementState"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -7090,7 +7187,6 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#GasSensor -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#GasSensor">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#GasSystem"/>
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Sensor"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -7108,6 +7204,13 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#GasSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#InfraredSensor"/>
@@ -7217,6 +7320,13 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#actuatorOf"/>
                 <owl:allValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Gate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Pump"/>
@@ -8992,7 +9102,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#HVACSystem -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#HVACSystem">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HousePlants"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TechnicalSystem"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Heating Ventilating and Air Conditioning system</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HVACSystem</rdfs:label>
     </owl:Class>
@@ -9067,7 +9177,6 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#HeatEnergyCalculator -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#HeatEnergyCalculator">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Meter"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -9159,6 +9268,13 @@ limitations under the License
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PowerMeasurementState"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -9180,7 +9296,14 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#Heater -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#Heater">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HeatingSystem"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Actuator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HeatingSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Device that heats water or supplies warmth</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Heater</rdfs:label>
     </owl:Class>
@@ -9216,8 +9339,8 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#HeatingAndCoolingUnit -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#HeatingAndCoolingUnit">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Actuator"/>
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Control"/>
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
@@ -9300,6 +9423,13 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HeatingAndCoolingUnitState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HeatingSystem"/>
@@ -9469,6 +9599,13 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#EnergyMeasurementState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -9655,16 +9792,6 @@ limitations under the License
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Cooker"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A portable electric appliance for heating or cooking or keeping food warm</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hotplate</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://elite.polito.it/ontologies/dogont.owl#HousePlants -->
-
-    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#HousePlants">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Controllable"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">All plants of the house, e.g. Electrical system, Hydraulic system</rdfs:comment>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HousePlants</rdfs:label>
     </owl:Class>
     
 
@@ -9901,6 +10028,13 @@ limitations under the License
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HumidityMeasurementState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -10225,7 +10359,6 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#InfraredSensor -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#InfraredSensor">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#AntiIntrusionSystem"/>
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Sensor"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -10243,6 +10376,13 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#AntiIntrusionSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#OccupancySensor"/>
@@ -10427,6 +10567,13 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#LevelState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PumpController"/>
@@ -10957,6 +11104,13 @@ limitations under the License
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#LightIntensityState"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The Light Sensor device reports the illuminance of an area</rdfs:comment>
     </owl:Class>
     
@@ -10965,11 +11119,18 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#Lighting -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#Lighting">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Actuator"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#isIn"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">System that provides artificial light</rdfs:comment>
@@ -11072,7 +11233,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#Meter -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#Meter">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SmartDevice"/>
     </owl:Class>
     
 
@@ -11250,7 +11411,6 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#MovementSensor -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MovementSensor">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#AccessControlSystem"/>
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Sensor"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -11262,6 +11422,13 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#MovementState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SecuritySystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -12024,7 +12191,6 @@ limitations under the License
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultipleFlowSensor">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#FlowSensor"/>
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
@@ -12180,7 +12346,6 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#MultiplePressureSensor -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultiplePressureSensor">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Sensor"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -12204,6 +12369,13 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The Pressure Sensor device measures and periodically reports the pressure of a liquid (typically water)</rdfs:comment>
@@ -12279,7 +12451,6 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#MultipleTemperatureSensor -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#MultipleTemperatureSensor">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TemperatureSensor"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -12937,6 +13108,13 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SecuritySystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PressureSensor"/>
@@ -14454,7 +14632,14 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#PowerDelivery -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#PowerDelivery">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Actuator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -14660,7 +14845,6 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#PresenceSensor -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#PresenceSensor">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#AccessControlSystem"/>
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Sensor"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -14672,6 +14856,13 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PresenceState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SecuritySystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -14867,7 +15058,6 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#PressureSensor -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#PressureSensor">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Sensor"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -14891,6 +15081,20 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Pump"/>
@@ -15053,7 +15257,6 @@ limitations under the License
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#Pump">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Actuator"/>
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
@@ -15168,6 +15371,20 @@ limitations under the License
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TemperatureState"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#PumpController"/>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ShadeActuator"/>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ShutterActuator"/>
@@ -15183,7 +15400,6 @@ limitations under the License
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#PumpController">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Control"/>
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
@@ -15236,6 +15452,20 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#OnOffState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#RemoteControl"/>
@@ -15632,6 +15862,13 @@ limitations under the License
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#OnOffState"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SceneSelector"/>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ShadeController"/>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SingleScenarioControl"/>
@@ -15974,6 +16211,13 @@ limitations under the License
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#OnOffState"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ShadeController"/>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SingleScenarioControl"/>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Switch"/>
@@ -15986,7 +16230,7 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#SecuritySystem -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SecuritySystem">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HousePlants"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TechnicalSystem"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Security system for detecting dangerous situation and intrusion</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SecuritySystem</rdfs:label>
     </owl:Class>
@@ -16089,7 +16333,7 @@ limitations under the License
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#Sensor">
         <owl:equivalentClass rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#Sensor"/>
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SmartDevice"/>
         <rdfs:comment xml:lang="en">Class for grouping all electrically powered sensors</rdfs:comment>
     </owl:Class>
     
@@ -16775,6 +17019,13 @@ limitations under the License
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#OnOffState"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SingleScenarioControl"/>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Switch"/>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ToggleRelay"/>
@@ -16901,6 +17152,13 @@ limitations under the License
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#UpDownRestState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -17064,7 +17322,6 @@ limitations under the License
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SingleFlowSensor">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#FlowSensor"/>
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
@@ -17831,6 +18088,13 @@ limitations under the License
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#OnOffState"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Switch"/>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ToggleRelay"/>
     </owl:Class>
@@ -17848,7 +18112,6 @@ limitations under the License
     <!-- http://elite.polito.it/ontologies/dogont.owl#SingleTemperatureSensor -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SingleTemperatureSensor">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TemperatureSensor"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -17949,6 +18212,14 @@ An electronic device producing a similar sound as a signal or warning: a police 
     
 
 
+    <!-- http://elite.polito.it/ontologies/dogont.owl#SmartDevice -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SmartDevice">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Controllable"/>
+    </owl:Class>
+    
+
+
     <!-- http://elite.polito.it/ontologies/dogont.owl#SmartTeachInCommand -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SmartTeachInCommand">
@@ -17967,7 +18238,6 @@ An electronic device producing a similar sound as a signal or warning: a police 
     <!-- http://elite.polito.it/ontologies/dogont.owl#SmokeSensor -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SmokeSensor">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#FireSystem"/>
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Sensor"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -17985,6 +18255,13 @@ An electronic device producing a similar sound as a signal or warning: a police 
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#WindowSensor"/>
@@ -19370,7 +19647,7 @@ An electronic device producing a similar sound as a signal or warning: a police 
     <!-- http://elite.polito.it/ontologies/dogont.owl#SurveillanceCamera -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#SurveillanceCamera">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#AntiIntrusionSystem"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Sensor"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
@@ -19389,6 +19666,13 @@ An electronic device producing a similar sound as a signal or warning: a police 
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#OnOffState"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#AccessControlSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#WindowSensor"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Camera of video surveillance</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SurveillanceCamera</rdfs:label>
@@ -19400,6 +19684,13 @@ An electronic device producing a similar sound as a signal or warning: a police 
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#Switch">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Control"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ToggleRelay"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bi-stable control consisting of a mechanical or electrical or electronic device for making or breaking or changing the connections in a circuit</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Switch</rdfs:label>
@@ -19543,6 +19834,16 @@ An electronic device producing a similar sound as a signal or warning: a police 
     
 
 
+    <!-- http://elite.polito.it/ontologies/dogont.owl#TechnicalSystem -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#TechnicalSystem">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">All technical systems including,  e.g., Electrical system, Hydraulic system</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TechnicalSystem</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://elite.polito.it/ontologies/dogont.owl#TemperatureAndHumiditySensor -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#TemperatureAndHumiditySensor">
@@ -19633,6 +19934,20 @@ An electronic device producing a similar sound as a signal or warning: a police 
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#TemperatureSensor">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -19714,6 +20029,13 @@ An electronic device producing a similar sound as a signal or warning: a police 
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ThermostatQueryFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -19812,7 +20134,6 @@ An electronic device producing a similar sound as a signal or warning: a police 
     <!-- http://elite.polito.it/ontologies/dogont.owl#ThermostatTemperatureSensor -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ThermostatTemperatureSensor">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SingleTemperatureSensor"/>
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Thermostat"/>
         <rdfs:subClassOf>
@@ -19841,7 +20162,6 @@ An electronic device producing a similar sound as a signal or warning: a police 
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ThermostaticRadiatorValve">
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Actuator"/>
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HVACSystem"/>
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Thermostat"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -19871,6 +20191,13 @@ An electronic device producing a similar sound as a signal or warning: a police 
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TemperatureState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#HeatingSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -20784,6 +21111,13 @@ An electronic device producing a similar sound as a signal or warning: a police 
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#OnOffState"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -21241,13 +21575,13 @@ An electronic device producing a similar sound as a signal or warning: a police 
     <!-- http://elite.polito.it/ontologies/dogont.owl#UnControllable -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#UnControllable">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#BuildingThing"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:complementOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Controllable"/>
             </owl:Class>
         </rdfs:subClassOf>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">All building things that can&apos;t be controlled by domotic system</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Anything that cannot be interfaces by a domotic, Iot or ICT system</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UnControllable</rdfs:label>
     </owl:Class>
     
@@ -21393,7 +21727,7 @@ An electronic device producing a similar sound as a signal or warning: a police 
     <!-- http://elite.polito.it/ontologies/dogont.owl#Ventilator -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#Ventilator">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#VentilatingSystem"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Actuator"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
@@ -21422,6 +21756,13 @@ An electronic device producing a similar sound as a signal or warning: a police 
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#OnOffState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#VentilatingSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A device that circulates fresh air and expels stale or foul air.</rdfs:comment>
@@ -21856,6 +22197,13 @@ An electronic device producing a similar sound as a signal or warning: a police 
                 <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#WaterMeasurementState"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -21924,7 +22272,7 @@ An electronic device producing a similar sound as a signal or warning: a police 
     <!-- http://elite.polito.it/ontologies/dogont.owl#Wearable -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#Wearable">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Controllable"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SmartDevice"/>
     </owl:Class>
     
 
@@ -22125,6 +22473,13 @@ It mus be noticed that the functionality modeling uses existential quantifiers f
                 <owl:allValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Window"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A mechanism that allow automatic opening and closing about window</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WindowActuator</rdfs:label>
     </owl:Class>
@@ -22134,7 +22489,6 @@ It mus be noticed that the functionality modeling uses existential quantifiers f
     <!-- http://elite.polito.it/ontologies/dogont.owl#WindowSensor -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#WindowSensor">
-        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#AntiIntrusionSystem"/>
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Sensor"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -22164,6 +22518,13 @@ It mus be noticed that the functionality modeling uses existential quantifiers f
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#sensorOf"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#belongsTo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ElectricalSystem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sensor that controls if a window is closed</rdfs:comment>
@@ -22350,6 +22711,12 @@ It mus be noticed that the functionality modeling uses existential quantifiers f
     <!-- http://purl.oclc.org/NET/ssnx/ssn#Sensor -->
 
     <owl:Class rdf:about="http://purl.oclc.org/NET/ssnx/ssn#Sensor"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalPlace -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalPlace"/>
     
 
 
