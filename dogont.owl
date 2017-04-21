@@ -1310,16 +1310,22 @@ limitations under the License
                                                                                 <rdf:rest>
                                                                                     <rdf:Description>
                                                                                         <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Object</rdf:first>
+                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Measure[]</rdf:first>
                                                                                         <rdf:rest>
                                                                                             <rdf:Description>
                                                                                                 <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Object[]</rdf:first>
+                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Object</rdf:first>
                                                                                                 <rdf:rest>
                                                                                                     <rdf:Description>
                                                                                                         <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Set</rdf:first>
-                                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Object[]</rdf:first>
+                                                                                                        <rdf:rest>
+                                                                                                            <rdf:Description>
+                                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Set</rdf:first>
+                                                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                            </rdf:Description>
+                                                                                                        </rdf:rest>
                                                                                                     </rdf:Description>
                                                                                                 </rdf:rest>
                                                                                             </rdf:Description>
@@ -8067,7 +8073,7 @@ limitations under the License
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#returnType"/>
-                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Double</owl:hasValue>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Measure</owl:hasValue>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -9050,6 +9056,27 @@ limitations under the License
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#StoreGroupCommand"/>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#StoreSceneCommand"/>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TimedOnCommand"/>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#GetXYZLocationCommand -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#GetXYZLocationCommand">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#NonParametricCommand"/>
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#NonVoidCommand"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#realCommandName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">getXYZLocation</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#returnType"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Measure[]</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -11300,6 +11327,32 @@ limitations under the License
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Room"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A large entrance</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lobby</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#LocalizationTag -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#LocalizationTag">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Wearable"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#XYZLocationNotificationFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasFunctionality"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#XYZLocationSensingFunctionality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasState"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#XYZLocationState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -17680,7 +17733,7 @@ limitations under the License
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasNotification"/>
-                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#FrequencyMeasurementNotification"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#SimpleFrequencyMeasurementNotification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -21712,6 +21765,14 @@ An electronic device producing a similar sound as a signal or warning: a police 
     
 
 
+    <!-- http://elite.polito.it/ontologies/dogont.owl#TridimensionalLocalizationState -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#TridimensionalLocalizationState">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousState"/>
+    </owl:Class>
+    
+
+
     <!-- http://elite.polito.it/ontologies/dogont.owl#TridimensionalMagnetometerNotification -->
 
     <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#TridimensionalMagnetometerNotification">
@@ -22981,6 +23042,96 @@ It mus be noticed that the functionality modeling uses existential quantifiers f
         <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#Phone"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Phone with no wire</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WirelessPhone</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#XYZLocationNotification -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#XYZLocationNotification">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ParametricNotification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new3DLocationValue</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x^^Measure</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">y^^Measure</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationParamName"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">z^^Measure</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#XYZLocationNotificationFunctionality -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#XYZLocationNotificationFunctionality">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousNotificationFunctionality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasNotification"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#XYZLocationNotification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#XYZLocationSensingFunctionality -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#XYZLocationSensingFunctionality">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#QueryFunctionality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasCommand"/>
+                <owl:someValuesFrom rdf:resource="http://elite.polito.it/ontologies/dogont.owl#GetXYZLocationCommand"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#XYZLocationState -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#XYZLocationState">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousState"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#hasStateValue"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#XYZLocationStateValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#XYZLocationStateValue -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#XYZLocationStateValue">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ContinuousValue"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#axisID"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
