@@ -13712,7 +13712,7 @@ limitations under the License
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Simple lamp that can be just turn on or turn off</rdfs:comment>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SimpleLamp</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OnOffLiight</rdfs:label>
     </owl:Class>
     
 
