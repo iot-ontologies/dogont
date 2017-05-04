@@ -704,6 +704,7 @@ limitations under the License
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#BTicinoGateway"/>
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#EchelonIlon100Gateway"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#ISMBUwbGateway"/>
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#KNXNetIPGateway"/>
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#KonnexGateway"/>
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#ModbusGateway"/>
@@ -722,6 +723,12 @@ limitations under the License
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The IP address of the gateway</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IPAddress</rdfs:label>
     </owl:DatatypeProperty>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#ISMBPSNProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#ISMBPSNProperty"/>
     
 
 
@@ -1183,6 +1190,7 @@ limitations under the License
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#BTicinoGateway"/>
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#EchelonIlon100Gateway"/>
+                    <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#ISMBUwbGateway"/>
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#KNXNetIPGateway"/>
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#KonnexGateway"/>
                     <rdf:Description rdf:about="http://elite.polito.it/ontologies/dogont.owl#ModbusGateway"/>
@@ -1579,6 +1587,16 @@ limitations under the License
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#uwbTagID -->
+
+    <owl:DatatypeProperty rdf:about="http://elite.polito.it/ontologies/dogont.owl#uwbTagID">
+        <rdfs:subPropertyOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ISMBPSNProperty"/>
+        <rdfs:domain rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ISMBUwbLocalizationComponent"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
@@ -10222,6 +10240,22 @@ limitations under the License
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ReactiveEnergyStateValue"/>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ShadeStateValue"/>
         <owl:disjointWith rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TemperatureStateValue"/>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#ISMBUwbGateway -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ISMBUwbGateway">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#ISMBUwbLocalizationComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://elite.polito.it/ontologies/dogont.owl#ISMBUwbLocalizationComponent -->
+
+    <owl:Class rdf:about="http://elite.polito.it/ontologies/dogont.owl#ISMBUwbLocalizationComponent">
+        <rdfs:subClassOf rdf:resource="http://elite.polito.it/ontologies/dogont.owl#NetworkComponent"/>
     </owl:Class>
     
 
