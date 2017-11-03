@@ -5,7 +5,7 @@
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
     <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
-    <!ENTITY muo "http://elite.polito.it/ontologies/muo/muo#" >
+    <!ENTITY muo "http://elite.polito.it/ontologies/muo-vocab.owl#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
@@ -20,7 +20,7 @@
      xml:base="http://elite.polito.it/ontologies/simpleHome.owl"
      xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
-     xmlns:muo="http://elite.polito.it/ontologies/muo/muo#"
+     xmlns:muo="http://elite.polito.it/ontologies/muo-vocab.owl#"
      xmlns:dogont="http://elite.polito.it/ontologies/dogont.owl#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
