@@ -7,9 +7,8 @@
 @base <http://elite.polito.it/ontologies/dogont.owl> .
 
 <http://elite.polito.it/ontologies/dogont.owl> rdf:type owl:Ontology ;
-                                                owl:imports <http://purl.oclc.org/NET/muo/ucum/> ;
-                                                <http://creativecommons.org/ns#license> """
-Copyright (c) 2008-2014 Dario Bonino
+                                                owl:imports <http://elite.polito.it/ontologies/ucum-instances.owl> ;
+                                                <http://creativecommons.org/ns#license> """Copyright (c) 2008-2017 Dario Bonino
 
 Licensed under the Apache License, Version 2.0 (the \"License\");
 you may not use this file except in compliance with the License.
@@ -21,10 +20,9 @@ Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an \"AS IS\" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
-limitations under the License                   
-""" ;
+limitations under the License""" ;
                                                 <http://purl.org/dc/terms/contributor> "Luigi De Russis (luigi.derussis@polito.it, luigidr@gmail.com)" ;
-                                                <http://purl.org/dc/terms/creator> "Dario Bonino (dario.bonino@polito.it, dario.bonino@gmail.com)" ;
+                                                <http://purl.org/dc/terms/creator> "Dario Bonino (dario.bonino@gmail.com)" ;
                                                 <http://purl.org/dc/terms/description> """DogOnt is a modeling language for IEs (Intelligent Environments), based on Semantic Web technologies. By adopting well known representations such as ontologies and by providing suitable reasoning facilities, DogOnt is able to face interoperation issues allowing to describe:
 
 - where a smart device is located;
@@ -36,13 +34,17 @@ limitations under the License
 
 This information can then be leveraged by inference-based intelligent systems to provide advanced functionality required in Intelligent Domotic Environments.  DogOnt is currently adopted as normative data model for the Dog gateway (http://http://dog-gateway.github.io/)""" ;
                                                 <http://purl.org/dc/terms/issued> "2008-01-01" ;
-                                                <http://purl.org/dc/terms/modified> "2017-04-20" ;
-                                                <http://purl.org/dc/terms/rights> "Copyright(c) 2008-2016 Dario Bonino" ;
+                                                <http://purl.org/dc/terms/modified> "2017-11-03" ;
+                                                <http://purl.org/dc/terms/rights> "Copyright(c) 2008-2017 Dario Bonino" ;
                                                 <http://purl.org/dc/terms/title> "DogOnt: Ontology Modeling for Intelligent Domotic Environments" ;
                                                 <http://purl.org/vocab/vann/preferredNamespacePrefix> "dogont" ;
                                                 <http://purl.org/vocab/vann/preferredNamespaceUri> "http://elite.polito.it/ontologies/dogont" ;
-                                                owl:priorVersion "3.2.11" ;
-                                                owl:versionInfo "4.0.0" ;
+                                                rdfs:comment """The version 4.0.1 solves an import problem with the UCUM ontology (http://purl.oclc.org/NET/muo/ucum/), which is not reachable on the Web since August 2017 (at least). This results in a non-working dogont ontology.
+
+To solve this issue, we temporarly self-hosted (with an IRI change) the UCUM ontology, which is now correclty imported in dogont.
+Please, notice that this is a *temporary* solution. We are planning to use the QUDT 2.0 ontologies, once they will be fully released.""" ;
+                                                owl:priorVersion "4.0.0" ;
+                                                owl:versionInfo "4.0.1" ;
                                                 <http://xmlns.com/foaf/0.1/primaryTopic> "Domotic Systems" .
 
 #################################################################
@@ -423,7 +425,7 @@ owl:versionInfo rdf:type owl:AnnotationProperty .
                                            :ParametricNotification
                                          )
                            ] ;
-               rdfs:range <http://purl.oclc.org/NET/muo/muo#UnitOfMeasurement> .
+               rdfs:range <http://elite.polito.it/ontologies/muo-vocab.owl#UnitOfMeasurement> .
 
 
 ###  http://www.w3.org/2002/07/owl#topObjectProperty
@@ -2761,7 +2763,7 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty :unitOfMeasure ;
                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass <http://purl.oclc.org/NET/muo/muo#UnitOfMeasurement>
+                                   owl:onClass <http://elite.polito.it/ontologies/muo-vocab.owl#UnitOfMeasurement>
                                  ] ;
                  owl:disjointWith :DiscreteValue .
 
@@ -10310,7 +10312,7 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty :unitOfMeasure ;
                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass <http://purl.oclc.org/NET/muo/muo#UnitOfMeasurement>
+                                          owl:onClass <http://elite.polito.it/ontologies/muo-vocab.owl#UnitOfMeasurement>
                                         ] ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty :nParams ;
@@ -16244,8 +16246,8 @@ It mus be noticed that the functionality modeling uses existential quantifiers f
                               ] .
 
 
-###  http://purl.oclc.org/NET/muo/muo#UnitOfMeasurement
-<http://purl.oclc.org/NET/muo/muo#UnitOfMeasurement> rdf:type owl:Class .
+###  http://elite.polito.it/ontologies/muo-vocab.owl#UnitOfMeasurement
+<http://elite.polito.it/ontologies/muo-vocab.owl#UnitOfMeasurement> rdf:type owl:Class .
 
 
 ###  http://purl.oclc.org/NET/ssnx/ssn#Device

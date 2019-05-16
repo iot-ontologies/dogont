@@ -2042,7 +2042,7 @@
     "@value" : "1"
   } ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "http://purl.oclc.org/NET/muo/muo#UnitOfMeasurement"
+    "@id" : "http://elite.polito.it/ontologies/muo-vocab.owl#UnitOfMeasurement"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "http://elite.polito.it/ontologies/dogont.owl#unitOfMeasure"
@@ -11715,7 +11715,7 @@
     "@value" : "1"
   } ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "http://purl.oclc.org/NET/muo/muo#UnitOfMeasurement"
+    "@id" : "http://elite.polito.it/ontologies/muo-vocab.owl#UnitOfMeasurement"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "http://elite.polito.it/ontologies/dogont.owl#unitOfMeasure"
@@ -17416,13 +17416,13 @@
   "@id" : "http://elite.polito.it/ontologies/dogont.owl",
   "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
   "http://creativecommons.org/ns#license" : [ {
-    "@value" : "\nCopyright (c) 2008-2014 Dario Bonino\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n     http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License                   \n"
+    "@value" : "Copyright (c) 2008-2017 Dario Bonino\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n     http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License"
   } ],
   "http://purl.org/dc/terms/contributor" : [ {
     "@value" : "Luigi De Russis (luigi.derussis@polito.it, luigidr@gmail.com)"
   } ],
   "http://purl.org/dc/terms/creator" : [ {
-    "@value" : "Dario Bonino (dario.bonino@polito.it, dario.bonino@gmail.com)"
+    "@value" : "Dario Bonino (dario.bonino@gmail.com)"
   } ],
   "http://purl.org/dc/terms/description" : [ {
     "@value" : "DogOnt is a modeling language for IEs (Intelligent Environments), based on Semantic Web technologies. By adopting well known representations such as ontologies and by providing suitable reasoning facilities, DogOnt is able to face interoperation issues allowing to describe:\n\n- where a smart device is located;\n- the set of capabilities of a smart device;\n- the technology-specific features needed to interface the device;\n- the possible configurations that the device can assume;\n- how the surrounding environment is composed;\n- what kind of architectural elements and furniture are placed inside the home, if the environment considered is a home.\n\nThis information can then be leveraged by inference-based intelligent systems to provide advanced functionality required in Intelligent Domotic Environments.  DogOnt is currently adopted as normative data model for the Dog gateway (http://http://dog-gateway.github.io/)"
@@ -17431,10 +17431,10 @@
     "@value" : "2008-01-01"
   } ],
   "http://purl.org/dc/terms/modified" : [ {
-    "@value" : "2017-04-20"
+    "@value" : "2017-11-03"
   } ],
   "http://purl.org/dc/terms/rights" : [ {
-    "@value" : "Copyright(c) 2008-2016 Dario Bonino"
+    "@value" : "Copyright(c) 2008-2017 Dario Bonino"
   } ],
   "http://purl.org/dc/terms/title" : [ {
     "@value" : "DogOnt: Ontology Modeling for Intelligent Domotic Environments"
@@ -17445,14 +17445,17 @@
   "http://purl.org/vocab/vann/preferredNamespaceUri" : [ {
     "@value" : "http://elite.polito.it/ontologies/dogont"
   } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The version 4.0.1 solves an import problem with the UCUM ontology (http://purl.oclc.org/NET/muo/ucum/), which is not reachable on the Web since August 2017 (at least). This results in a non-working dogont ontology.\n\nTo solve this issue, we temporarly self-hosted (with an IRI change) the UCUM ontology, which is now correclty imported in dogont.\nPlease, notice that this is a *temporary* solution. We are planning to use the QUDT 2.0 ontologies, once they will be fully released."
+  } ],
   "http://www.w3.org/2002/07/owl#imports" : [ {
-    "@id" : "http://purl.oclc.org/NET/muo/ucum/"
+    "@id" : "http://elite.polito.it/ontologies/ucum-instances.owl"
   } ],
   "http://www.w3.org/2002/07/owl#priorVersion" : [ {
-    "@value" : "3.2.11"
+    "@value" : "4.0.0"
   } ],
   "http://www.w3.org/2002/07/owl#versionInfo" : [ {
-    "@value" : "4.0.0"
+    "@value" : "4.0.1"
   } ],
   "http://xmlns.com/foaf/0.1/primaryTopic" : [ {
     "@value" : "Domotic Systems"
@@ -34839,7 +34842,7 @@
     "@id" : "_:genid69"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://purl.oclc.org/NET/muo/muo#UnitOfMeasurement"
+    "@id" : "http://elite.polito.it/ontologies/muo-vocab.owl#UnitOfMeasurement"
   } ]
 }, {
   "@id" : "http://elite.polito.it/ontologies/dogont.owl#username",
@@ -34872,7 +34875,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
-  "@id" : "http://purl.oclc.org/NET/muo/muo#UnitOfMeasurement",
+  "@id" : "http://elite.polito.it/ontologies/muo-vocab.owl#UnitOfMeasurement",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
   "@id" : "http://purl.oclc.org/NET/ssnx/ssn#Device",

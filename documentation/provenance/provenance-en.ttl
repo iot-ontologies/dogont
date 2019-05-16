@@ -6,8 +6,8 @@
 	 prov:wasAttributedTo :agent0;
 	 prov:wasAttributedTo :agent1;
 	 prov:wasAttributedTo <https://github.com/dgarijo/Widoco/>,<http://www.essepuntato.it/lode/>;
-	 prov:wasRevisionOf <3.2.11>;
-	 prov:wasGeneratedAt "2017-04-20";
+	 prov:wasRevisionOf <4.0.0>;
+	 prov:wasGeneratedAt "2017-11-03";
 .
-:agent0 a prov:Agent; foaf:name "Dario Bonino (dario.bonino@polito.it, dario.bonino@gmail.com)".
+:agent0 a prov:Agent; foaf:name "Dario Bonino (dario.bonino@gmail.com)".
 :agent1 a prov:Agent; foaf:name "Luigi De Russis (luigi.derussis@polito.it, luigidr@gmail.com)".

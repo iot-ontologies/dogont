@@ -1,17 +1,18 @@
 <http://elite.polito.it/ontologies/dogont.owl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
-<http://elite.polito.it/ontologies/dogont.owl> <http://www.w3.org/2002/07/owl#imports> <http://purl.oclc.org/NET/muo/ucum/> .
-<http://elite.polito.it/ontologies/dogont.owl> <http://creativecommons.org/ns#license> "\nCopyright (c) 2008-2014 Dario Bonino\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n     http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License                   \n" .
+<http://elite.polito.it/ontologies/dogont.owl> <http://www.w3.org/2002/07/owl#imports> <http://elite.polito.it/ontologies/ucum-instances.owl> .
+<http://elite.polito.it/ontologies/dogont.owl> <http://creativecommons.org/ns#license> "Copyright (c) 2008-2017 Dario Bonino\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n     http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License" .
 <http://elite.polito.it/ontologies/dogont.owl> <http://purl.org/dc/terms/contributor> "Luigi De Russis (luigi.derussis@polito.it, luigidr@gmail.com)" .
-<http://elite.polito.it/ontologies/dogont.owl> <http://purl.org/dc/terms/creator> "Dario Bonino (dario.bonino@polito.it, dario.bonino@gmail.com)" .
+<http://elite.polito.it/ontologies/dogont.owl> <http://purl.org/dc/terms/creator> "Dario Bonino (dario.bonino@gmail.com)" .
 <http://elite.polito.it/ontologies/dogont.owl> <http://purl.org/dc/terms/description> "DogOnt is a modeling language for IEs (Intelligent Environments), based on Semantic Web technologies. By adopting well known representations such as ontologies and by providing suitable reasoning facilities, DogOnt is able to face interoperation issues allowing to describe:\n\n- where a smart device is located;\n- the set of capabilities of a smart device;\n- the technology-specific features needed to interface the device;\n- the possible configurations that the device can assume;\n- how the surrounding environment is composed;\n- what kind of architectural elements and furniture are placed inside the home, if the environment considered is a home.\n\nThis information can then be leveraged by inference-based intelligent systems to provide advanced functionality required in Intelligent Domotic Environments.  DogOnt is currently adopted as normative data model for the Dog gateway (http://http://dog-gateway.github.io/)" .
 <http://elite.polito.it/ontologies/dogont.owl> <http://purl.org/dc/terms/issued> "2008-01-01" .
-<http://elite.polito.it/ontologies/dogont.owl> <http://purl.org/dc/terms/modified> "2017-04-20" .
-<http://elite.polito.it/ontologies/dogont.owl> <http://purl.org/dc/terms/rights> "Copyright(c) 2008-2016 Dario Bonino" .
+<http://elite.polito.it/ontologies/dogont.owl> <http://purl.org/dc/terms/modified> "2017-11-03" .
+<http://elite.polito.it/ontologies/dogont.owl> <http://purl.org/dc/terms/rights> "Copyright(c) 2008-2017 Dario Bonino" .
 <http://elite.polito.it/ontologies/dogont.owl> <http://purl.org/dc/terms/title> "DogOnt: Ontology Modeling for Intelligent Domotic Environments" .
 <http://elite.polito.it/ontologies/dogont.owl> <http://purl.org/vocab/vann/preferredNamespacePrefix> "dogont" .
 <http://elite.polito.it/ontologies/dogont.owl> <http://purl.org/vocab/vann/preferredNamespaceUri> "http://elite.polito.it/ontologies/dogont" .
-<http://elite.polito.it/ontologies/dogont.owl> <http://www.w3.org/2002/07/owl#priorVersion> "3.2.11" .
-<http://elite.polito.it/ontologies/dogont.owl> <http://www.w3.org/2002/07/owl#versionInfo> "4.0.0" .
+<http://elite.polito.it/ontologies/dogont.owl> <http://www.w3.org/2000/01/rdf-schema#comment> "The version 4.0.1 solves an import problem with the UCUM ontology (http://purl.oclc.org/NET/muo/ucum/), which is not reachable on the Web since August 2017 (at least). This results in a non-working dogont ontology.\n\nTo solve this issue, we temporarly self-hosted (with an IRI change) the UCUM ontology, which is now correclty imported in dogont.\nPlease, notice that this is a *temporary* solution. We are planning to use the QUDT 2.0 ontologies, once they will be fully released." .
+<http://elite.polito.it/ontologies/dogont.owl> <http://www.w3.org/2002/07/owl#priorVersion> "4.0.0" .
+<http://elite.polito.it/ontologies/dogont.owl> <http://www.w3.org/2002/07/owl#versionInfo> "4.0.1" .
 <http://elite.polito.it/ontologies/dogont.owl> <http://xmlns.com/foaf/0.1/primaryTopic> "Domotic Systems" .
 # 
 # 
@@ -463,7 +464,7 @@ _:genid71 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid70 .
 _:genid70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 _:genid70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://elite.polito.it/ontologies/dogont.owl#ParametricNotification> .
 _:genid70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-<http://elite.polito.it/ontologies/dogont.owl#unitOfMeasure> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.oclc.org/NET/muo/muo#UnitOfMeasurement> .
+<http://elite.polito.it/ontologies/dogont.owl#unitOfMeasure> <http://www.w3.org/2000/01/rdf-schema#range> <http://elite.polito.it/ontologies/muo-vocab.owl#UnitOfMeasurement> .
 # 
 # http://www.w3.org/2002/07/owl#topObjectProperty
 <http://www.w3.org/2002/07/owl#topObjectProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
@@ -2828,7 +2829,7 @@ _:genid398 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://elite.polito.it
 _:genid399 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 _:genid399 <http://www.w3.org/2002/07/owl#onProperty> <http://elite.polito.it/ontologies/dogont.owl#unitOfMeasure> .
 _:genid399 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid399 <http://www.w3.org/2002/07/owl#onClass> <http://purl.oclc.org/NET/muo/muo#UnitOfMeasurement> .
+_:genid399 <http://www.w3.org/2002/07/owl#onClass> <http://elite.polito.it/ontologies/muo-vocab.owl#UnitOfMeasurement> .
 <http://elite.polito.it/ontologies/dogont.owl#ContinuousValue> <http://www.w3.org/2002/07/owl#disjointWith> <http://elite.polito.it/ontologies/dogont.owl#DiscreteValue> .
 # 
 # http://elite.polito.it/ontologies/dogont.owl#Control
@@ -9957,7 +9958,7 @@ _:genid1217 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.o
 _:genid1218 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 _:genid1218 <http://www.w3.org/2002/07/owl#onProperty> <http://elite.polito.it/ontologies/dogont.owl#unitOfMeasure> .
 _:genid1218 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid1218 <http://www.w3.org/2002/07/owl#onClass> <http://purl.oclc.org/NET/muo/muo#UnitOfMeasurement> .
+_:genid1218 <http://www.w3.org/2002/07/owl#onClass> <http://elite.polito.it/ontologies/muo-vocab.owl#UnitOfMeasurement> .
 <http://elite.polito.it/ontologies/dogont.owl#ParametricNotification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid1219 .
 _:genid1219 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 _:genid1219 <http://www.w3.org/2002/07/owl#onProperty> <http://elite.polito.it/ontologies/dogont.owl#nParams> .
@@ -15495,8 +15496,8 @@ _:genid2014 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org
 _:genid2014 <http://www.w3.org/2002/07/owl#onProperty> <http://elite.polito.it/ontologies/dogont.owl#hasState> .
 _:genid2014 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://elite.polito.it/ontologies/dogont.owl#OnOffState> .
 # 
-# http://purl.oclc.org/NET/muo/muo#UnitOfMeasurement
-<http://purl.oclc.org/NET/muo/muo#UnitOfMeasurement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# http://elite.polito.it/ontologies/muo-vocab.owl#UnitOfMeasurement
+<http://elite.polito.it/ontologies/muo-vocab.owl#UnitOfMeasurement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 # 
 # http://purl.oclc.org/NET/ssnx/ssn#Device
 <http://purl.oclc.org/NET/ssnx/ssn#Device> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
