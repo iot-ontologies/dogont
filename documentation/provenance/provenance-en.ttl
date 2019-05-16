@@ -1,0 +1,13 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+<..\index-en.html> a prov:Entity;
+	 dc:title "DogOnt: Ontology Modeling for Intelligent Domotic Environments";
+	 prov:wasAttributedTo :agent0;
+	 prov:wasAttributedTo :agent1;
+	 prov:wasAttributedTo <https://github.com/dgarijo/Widoco/>,<http://www.essepuntato.it/lode/>;
+	 prov:wasRevisionOf <3.2.11>;
+	 prov:wasGeneratedAt "2017-04-20";
+.
+:agent0 a prov:Agent; foaf:name "Dario Bonino (dario.bonino@polito.it, dario.bonino@gmail.com)".
+:agent1 a prov:Agent; foaf:name "Luigi De Russis (luigi.derussis@polito.it, luigidr@gmail.com)".
