@@ -8,7 +8,7 @@
 
 <http://elite.polito.it/ontologies/dogont.owl> rdf:type owl:Ontology ;
                                                 owl:imports <http://elite.polito.it/ontologies/ucum-instances.owl> ;
-                                                <http://creativecommons.org/ns#license> """Copyright (c) 2008-2017 Dario Bonino
+                                                <http://creativecommons.org/ns#license> """Copyright (c) 2008-2019 Dario Bonino
 
 Licensed under the Apache License, Version 2.0 (the \"License\");
 you may not use this file except in compliance with the License.
@@ -34,8 +34,8 @@ limitations under the License""" ;
 
 This information can then be leveraged by inference-based intelligent systems to provide advanced functionality required in Intelligent Domotic Environments.  DogOnt is currently adopted as normative data model for the Dog gateway (http://http://dog-gateway.github.io/)""" ;
                                                 <http://purl.org/dc/terms/issued> "2008-01-01" ;
-                                                <http://purl.org/dc/terms/modified> "2017-11-03" ;
-                                                <http://purl.org/dc/terms/rights> "Copyright(c) 2008-2017 Dario Bonino" ;
+                                                <http://purl.org/dc/terms/modified> "2019-03-26" ;
+                                                <http://purl.org/dc/terms/rights> "Copyright(c) 2008-2019 Dario Bonino" ;
                                                 <http://purl.org/dc/terms/title> "DogOnt: Ontology Modeling for Intelligent Domotic Environments" ;
                                                 <http://purl.org/vocab/vann/preferredNamespacePrefix> "dogont" ;
                                                 <http://purl.org/vocab/vann/preferredNamespaceUri> "http://elite.polito.it/ontologies/dogont" ;
@@ -43,8 +43,8 @@ This information can then be leveraged by inference-based intelligent systems to
 
 To solve this issue, we temporarly self-hosted (with an IRI change) the UCUM ontology, which is now correclty imported in dogont.
 Please, notice that this is a *temporary* solution. We are planning to use the QUDT 2.0 ontologies, once they will be fully released.""" ;
-                                                owl:priorVersion "4.0.0" ;
-                                                owl:versionInfo "4.0.1" ;
+                                                owl:priorVersion "4.0.1" ;
+                                                owl:versionInfo "4.0.2" ;
                                                 <http://xmlns.com/foaf/0.1/primaryTopic> "Domotic Systems" .
 
 #################################################################
@@ -1298,6 +1298,25 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
                      rdfs:subClassOf :AccessControlSystem ;
                      rdfs:comment "System that provides security about intrusion" ;
                      rdfs:label "AntiIntrusionSystem" .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#ApparentEnergyMeasurementFunctionality
+:ApparentEnergyMeasurementFunctionality rdf:type owl:Class ;
+                                        rdfs:subClassOf :EnergyMeasurementFunctionality .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#ApparentEnergyMeasurementNotificationFunctionality
+:ApparentEnergyMeasurementNotificationFunctionality rdf:type owl:Class ;
+                                                    rdfs:subClassOf :EnergyMeasurementNotificationFunctionality .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#ApparentEnergyStateValue
+:ApparentEnergyStateValue rdf:type owl:Class ;
+                          rdfs:subClassOf :EnergyStateValue ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :phaseID ;
+                                            owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                          ] .
 
 
 ###  http://elite.polito.it/ontologies/dogont.owl#ApparentPowerMeasurementFunctionality
@@ -5233,6 +5252,54 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
                        rdfs:subClassOf :DiscreteState .
 
 
+###  http://elite.polito.it/ontologies/dogont.owl#GenericContinuousState
+:GenericContinuousState rdf:type owl:Class ;
+                        rdfs:subClassOf :ContinuousState ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :hasStateValue ;
+                                          owl:someValuesFrom :ContinuousValue
+                                        ] .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#GenericDiscreteState
+:GenericDiscreteState rdf:type owl:Class ;
+                      rdfs:subClassOf :DiscreteState ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :hasStateValue ;
+                                        owl:someValuesFrom :DiscreteValue
+                                      ] .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#GenericSensor
+:GenericSensor rdf:type owl:Class ;
+               rdfs:subClassOf :Sensor ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasFunctionality ;
+                                 owl:someValuesFrom :GenericValueNotificationFunctionality
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasFunctionality ;
+                                 owl:someValuesFrom :HybridGenericControlFunctionality
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasState ;
+                                 owl:someValuesFrom :GenericContinuousState
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasState ;
+                                 owl:someValuesFrom :GenericDiscreteState
+                               ] .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#GenericValueNotificationFunctionality
+:GenericValueNotificationFunctionality rdf:type owl:Class ;
+                                       rdfs:subClassOf :NotificationFunctionality ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasNotification ;
+                                                         owl:someValuesFrom :EventNotification
+                                                       ] .
+
+
 ###  http://elite.polito.it/ontologies/dogont.owl#Get1PhaseActiveEnergyCommand
 :Get1PhaseActiveEnergyCommand rdf:type owl:Class ;
                               rdfs:subClassOf :NonParametricCommand ,
@@ -5261,6 +5328,20 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
                                              ] .
 
 
+###  http://elite.polito.it/ontologies/dogont.owl#Get1PhaseApparentEnergyCommand
+:Get1PhaseApparentEnergyCommand rdf:type owl:Class ;
+                                rdfs:subClassOf :NonParametricCommand ,
+                                                :NonVoidCommand ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :realCommandName ;
+                                                  owl:hasValue "getApparentEnergyValue"
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :returnType ;
+                                                  owl:hasValue "Measure"
+                                                ] .
+
+
 ###  http://elite.polito.it/ontologies/dogont.owl#Get1PhaseApparentPowerCommand
 :Get1PhaseApparentPowerCommand rdf:type owl:Class ;
                                rdfs:subClassOf :NonParametricCommand ,
@@ -5287,6 +5368,20 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
                                            owl:onProperty :returnType ;
                                            owl:hasValue "Measure"
                                          ] .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#Get1PhasePowerFactorCommand
+:Get1PhasePowerFactorCommand rdf:type owl:Class ;
+                             rdfs:subClassOf :NonParametricCommand ,
+                                             :NonVoidCommand ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :realCommandName ;
+                                               owl:hasValue "getPowerFactor"
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :returnType ;
+                                               owl:hasValue "Measure"
+                                             ] .
 
 
 ###  http://elite.polito.it/ontologies/dogont.owl#Get1PhaseReactiveEnergyCommand
@@ -5461,6 +5556,28 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
                                              owl:onProperty :nParams ;
                                              owl:cardinality "1"^^xsd:nonNegativeInteger
                                            ] .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#Get3PhasePowerFactorCommand
+:Get3PhasePowerFactorCommand rdf:type owl:Class ;
+                             rdfs:subClassOf :NonVoidCommand ,
+                                             :ParametricCommand ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :commandParamName ;
+                                               owl:hasValue "phaseID^^String"
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :realCommandName ;
+                                               owl:hasValue "getPowerFactor"
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :returnType ;
+                                               owl:hasValue "Measure"
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :nParams ;
+                                               owl:cardinality "1"^^xsd:nonNegativeInteger
+                                             ] .
 
 
 ###  http://elite.polito.it/ontologies/dogont.owl#Get3PhaseReactiveEnergyCommand
@@ -5805,6 +5922,20 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
                                      ] .
 
 
+###  http://elite.polito.it/ontologies/dogont.owl#GetGenericValue
+:GetGenericValue rdf:type owl:Class ;
+                 rdfs:subClassOf :NonParametricCommand ,
+                                 :NonVoidCommand ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :realCommandName ;
+                                   owl:hasValue "getValue"
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :returnType ;
+                                   owl:hasValue "Object"
+                                 ] .
+
+
 ###  http://elite.polito.it/ontologies/dogont.owl#GetHeatingEnergyCommand
 :GetHeatingEnergyCommand rdf:type owl:Class ;
                          rdfs:subClassOf :NonParametricCommand ,
@@ -6080,20 +6211,6 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
                                    owl:onProperty :returnType ;
                                    owl:hasValue "Measure"
                                  ] .
-
-
-###  http://elite.polito.it/ontologies/dogont.owl#GetPowerFactorCommand
-:GetPowerFactorCommand rdf:type owl:Class ;
-                       rdfs:subClassOf :NonParametricCommand ,
-                                       :NonVoidCommand ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty :realCommandName ;
-                                         owl:hasValue "getPowerFactor"
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty :returnType ;
-                                         owl:hasValue "Measure"
-                                       ] .
 
 
 ###  http://elite.polito.it/ontologies/dogont.owl#GetPressureCommand
@@ -7266,6 +7383,20 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
                                      :ReactiveEnergyStateValue ,
                                      :ShadeStateValue ,
                                      :TemperatureStateValue .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#HybridGenericControlFunctionality
+:HybridGenericControlFunctionality rdf:type owl:Class ;
+                                   rdfs:subClassOf :ControlFunctionality ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :hasCommand ;
+                                                     owl:someValuesFrom :GetGenericValue
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :hasCommand ;
+                                                     owl:someValuesFrom :SetGenericValue
+                                                   ] ;
+                                   rdfs:comment "A generic control functionality which allowsto either handle continuous or discrete commands, provide means to \"bypass\" the dogont abstraction and treat protocol-specific cases when an abstraction is not yet available. Use with extreme caution" .
 
 
 ###  http://elite.polito.it/ontologies/dogont.owl#ISMBUwbGateway
@@ -10665,42 +10796,22 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
 
 ###  http://elite.polito.it/ontologies/dogont.owl#PowerFactorMeasurementFunctionality
 :PowerFactorMeasurementFunctionality rdf:type owl:Class ;
-                                     rdfs:subClassOf :QueryFunctionality ,
-                                                     [ rdf:type owl:Restriction ;
-                                                       owl:onProperty :hasCommand ;
-                                                       owl:someValuesFrom :GetPowerFactorCommand
-                                                     ] .
+                                     rdfs:subClassOf :QueryFunctionality .
 
 
 ###  http://elite.polito.it/ontologies/dogont.owl#PowerFactorMeasurementNotification
 :PowerFactorMeasurementNotification rdf:type owl:Class ;
-                                    rdfs:subClassOf :ParametricNotification ,
-                                                    [ rdf:type owl:Restriction ;
-                                                      owl:onProperty :notificationName ;
-                                                      owl:hasValue "newPowerFactorValue"
-                                                    ] ,
-                                                    [ rdf:type owl:Restriction ;
-                                                      owl:onProperty :notificationParamName ;
-                                                      owl:hasValue "powerFactor^^Measure"
-                                                    ] .
+                                    rdfs:subClassOf :ParametricNotification .
 
 
 ###  http://elite.polito.it/ontologies/dogont.owl#PowerFactorMeasurementNotificationFunctionality
 :PowerFactorMeasurementNotificationFunctionality rdf:type owl:Class ;
-                                                 rdfs:subClassOf :ContinuousNotificationFunctionality ,
-                                                                 [ rdf:type owl:Restriction ;
-                                                                   owl:onProperty :hasNotification ;
-                                                                   owl:someValuesFrom :PowerFactorMeasurementNotification
-                                                                 ] .
+                                                 rdfs:subClassOf :ContinuousNotificationFunctionality .
 
 
 ###  http://elite.polito.it/ontologies/dogont.owl#PowerFactorMeasurementState
 :PowerFactorMeasurementState rdf:type owl:Class ;
-                             rdfs:subClassOf :ContinuousState ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :hasStateValue ;
-                                               owl:someValuesFrom :PowerFactorStateValue
-                                             ] .
+                             rdfs:subClassOf :ContinuousState .
 
 
 ###  http://elite.polito.it/ontologies/dogont.owl#PowerFactorMeter
@@ -10708,15 +10819,15 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
                   rdfs:subClassOf :ElectricityMeter ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty :hasFunctionality ;
-                                    owl:someValuesFrom :PowerFactorMeasurementFunctionality
+                                    owl:someValuesFrom :SinglePhasePowerFactorMeasurementFunctionality
                                   ] ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty :hasFunctionality ;
-                                    owl:someValuesFrom :PowerFactorMeasurementNotificationFunctionality
+                                    owl:someValuesFrom :SinglePhasePowerFactorMeasurementNotificationFunctionality
                                   ] ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty :hasState ;
-                                    owl:someValuesFrom :PowerFactorMeasurementState
+                                    owl:someValuesFrom :SinglePhasePowerFactorMeasurementState
                                   ] .
 
 
@@ -12038,6 +12149,28 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
                                    ] .
 
 
+###  http://elite.polito.it/ontologies/dogont.owl#SetGenericValue
+:SetGenericValue rdf:type owl:Class ;
+                 rdfs:subClassOf :NonVoidCommand ,
+                                 :ParametricCommand ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :commandParamName ;
+                                   owl:hasValue "value^^Object"
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :realCommandName ;
+                                   owl:hasValue "setValue"
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :returnType ;
+                                   owl:hasValue "Boolean"
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :nParams ;
+                                   owl:cardinality "1"^^xsd:nonNegativeInteger
+                                 ] .
+
+
 ###  http://elite.polito.it/ontologies/dogont.owl#SetHourCommand
 :SetHourCommand rdf:type owl:Class ;
                 rdfs:subClassOf :ParametricCommand ,
@@ -12730,6 +12863,64 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
                                              ] .
 
 
+###  http://elite.polito.it/ontologies/dogont.owl#SinglePhaseApparentEnergyMeasurementFunctionality
+:SinglePhaseApparentEnergyMeasurementFunctionality rdf:type owl:Class ;
+                                                   rdfs:subClassOf :ApparentEnergyMeasurementFunctionality ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :hasCommand ;
+                                                                     owl:someValuesFrom :Get1PhaseApparentEnergyCommand
+                                                                   ] .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#SinglePhaseApparentEnergyMeasurementNotification
+:SinglePhaseApparentEnergyMeasurementNotification rdf:type owl:Class ;
+                                                  rdfs:subClassOf :EnergyMeasurementNotification ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty :notificationName ;
+                                                                    owl:hasValue "newApparentEnergyValue"
+                                                                  ] ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty :notificationParamName ;
+                                                                    owl:hasValue "value^^Measure"
+                                                                  ] .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#SinglePhaseApparentEnergyMeasurementNotificationFunctionality
+:SinglePhaseApparentEnergyMeasurementNotificationFunctionality rdf:type owl:Class ;
+                                                               rdfs:subClassOf :ApparentEnergyMeasurementNotificationFunctionality ,
+                                                                               [ rdf:type owl:Restriction ;
+                                                                                 owl:onProperty :hasNotification ;
+                                                                                 owl:someValuesFrom :SinglePhaseApparentEnergyMeasurementNotification
+                                                                               ] .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#SinglePhaseApparentEnergyMeter
+:SinglePhaseApparentEnergyMeter rdf:type owl:Class ;
+                                rdfs:subClassOf :SingleTariffEnergyMeter ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :hasFunctionality ;
+                                                  owl:someValuesFrom :SinglePhaseApparentEnergyMeasurementFunctionality
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :hasFunctionality ;
+                                                  owl:someValuesFrom :SinglePhaseApparentEnergyMeasurementNotificationFunctionality
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :hasState ;
+                                                  owl:someValuesFrom :SinglePhaseApparentEnergyState
+                                                ] .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#SinglePhaseApparentEnergyState
+:SinglePhaseApparentEnergyState rdf:type owl:Class ;
+                                rdfs:subClassOf :EnergyMeasurementState ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :hasStateValue ;
+                                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                  owl:onClass :ApparentEnergyStateValue
+                                                ] .
+
+
 ###  http://elite.polito.it/ontologies/dogont.owl#SinglePhaseApparentPowerMeasurementFunctionality
 :SinglePhaseApparentPowerMeasurementFunctionality rdf:type owl:Class ;
                                                   rdfs:subClassOf :ApparentPowerMeasurementFunctionality ,
@@ -12888,6 +13079,46 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
                                           owl:onProperty :hasState ;
                                           owl:someValuesFrom :SinglePhaseReactiveEnergyState
                                         ] .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#SinglePhasePowerFactorMeasurementFunctionality
+:SinglePhasePowerFactorMeasurementFunctionality rdf:type owl:Class ;
+                                                rdfs:subClassOf :PowerFactorMeasurementFunctionality ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :hasCommand ;
+                                                                  owl:someValuesFrom :Get1PhasePowerFactorCommand
+                                                                ] .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#SinglePhasePowerFactorMeasurementNotification
+:SinglePhasePowerFactorMeasurementNotification rdf:type owl:Class ;
+                                               rdfs:subClassOf :PowerFactorMeasurementNotification ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :notificationName ;
+                                                                 owl:hasValue "newPowerFactorValue"
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :notificationParamName ;
+                                                                 owl:hasValue "powerFactor^^Measure"
+                                                               ] .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#SinglePhasePowerFactorMeasurementNotificationFunctionality
+:SinglePhasePowerFactorMeasurementNotificationFunctionality rdf:type owl:Class ;
+                                                            rdfs:subClassOf :PowerFactorMeasurementNotificationFunctionality ,
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty :hasNotification ;
+                                                                              owl:someValuesFrom :SinglePhasePowerFactorMeasurementNotification
+                                                                            ] .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#SinglePhasePowerFactorMeasurementState
+:SinglePhasePowerFactorMeasurementState rdf:type owl:Class ;
+                                        rdfs:subClassOf :PowerFactorMeasurementState ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :hasStateValue ;
+                                                          owl:someValuesFrom :PowerFactorStateValue
+                                                        ] .
 
 
 ###  http://elite.polito.it/ontologies/dogont.owl#SinglePhaseReactiveEnergyMeasurementFunctionality
@@ -14816,6 +15047,46 @@ An electronic device producing a similar sound as a signal or warning: a police 
                                        ] .
 
 
+###  http://elite.polito.it/ontologies/dogont.owl#ThreePhaseFrequencyMeasurementNotification
+:ThreePhaseFrequencyMeasurementNotification rdf:type owl:Class ;
+                                            rdfs:subClassOf :FrequencyMeasurementNotification ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :nParams ;
+                                                              owl:hasValue 2
+                                                            ] ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :notificationName ;
+                                                              owl:hasValue "newFrequencyValue"
+                                                            ] ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :notificationParamName ;
+                                                              owl:hasValue "frequency^^Measure"
+                                                            ] ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :notificationParamName ;
+                                                              owl:hasValue "phaseID^^String"
+                                                            ] .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#ThreePhaseFrequencyMeasurementNotificationFunctionality
+:ThreePhaseFrequencyMeasurementNotificationFunctionality rdf:type owl:Class ;
+                                                         rdfs:subClassOf :FrequencyMeasurementNotificationFunctionality ,
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty :hasNotification ;
+                                                                           owl:someValuesFrom :ThreePhaseFrequencyMeasurementNotification
+                                                                         ] .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#ThreePhaseFrequencyMeasurementState
+:ThreePhaseFrequencyMeasurementState rdf:type owl:Class ;
+                                     rdfs:subClassOf :FrequencyMeasurementState ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :hasStateValue ;
+                                                       owl:qualifiedCardinality "3"^^xsd:nonNegativeInteger ;
+                                                       owl:onClass :FrequencyStateValue
+                                                     ] .
+
+
 ###  http://elite.polito.it/ontologies/dogont.owl#ThreePhaseLLVoltageMeasurementNotification
 :ThreePhaseLLVoltageMeasurementNotification rdf:type owl:Class ;
                                             rdfs:subClassOf :ParametricNotification ,
@@ -14856,6 +15127,55 @@ An electronic device producing a similar sound as a signal or warning: a police 
                                                               owl:onProperty :notificationParamName ;
                                                               owl:hasValue "value^^Measure"
                                                             ] .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#ThreePhasePowerFactorMeasurementFunctionality
+:ThreePhasePowerFactorMeasurementFunctionality rdf:type owl:Class ;
+                                               rdfs:subClassOf :PowerFactorMeasurementFunctionality ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :hasCommand ;
+                                                                 owl:someValuesFrom :Get3PhasePowerFactorCommand
+                                                               ] .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#ThreePhasePowerFactorMeasurementNotification
+:ThreePhasePowerFactorMeasurementNotification rdf:type owl:Class ;
+                                              rdfs:subClassOf :PowerFactorMeasurementNotification ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty :nParams ;
+                                                                owl:hasValue 2
+                                                              ] ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty :notificationName ;
+                                                                owl:hasValue "newPowerFactorValue"
+                                                              ] ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty :notificationParamName ;
+                                                                owl:hasValue "phaseID^^String"
+                                                              ] ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty :notificationParamName ;
+                                                                owl:hasValue "powerFactor^^Measure"
+                                                              ] .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#ThreePhasePowerFactorMeasurementNotificationFunctionality
+:ThreePhasePowerFactorMeasurementNotificationFunctionality rdf:type owl:Class ;
+                                                           rdfs:subClassOf :PowerFactorMeasurementNotificationFunctionality ,
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty :hasNotification ;
+                                                                             owl:someValuesFrom :ThreePhasePowerFactorMeasurementNotification
+                                                                           ] .
+
+
+###  http://elite.polito.it/ontologies/dogont.owl#ThreePhasePowerFactorMeasurementState
+:ThreePhasePowerFactorMeasurementState rdf:type owl:Class ;
+                                       rdfs:subClassOf :PowerFactorMeasurementState ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasStateValue ;
+                                                         owl:qualifiedCardinality "3"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass :PowerFactorStateValue
+                                                       ] .
 
 
 ###  http://elite.polito.it/ontologies/dogont.owl#ThreePhaseReactiveEnergyMeasurementFunctionality
