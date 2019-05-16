@@ -12,7 +12,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:gr="http://purl.org/goodrelations/v1#"
-     xmlns:ucum="http://elite.polito.it/ontologies/ucum-instances.owl"
+     xmlns:ucum="http://elite.polito.it/ontologies/ucum-instances.owl#"
      xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:terms="http://purl.org/dc/terms/"
