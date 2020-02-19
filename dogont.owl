@@ -1880,7 +1880,7 @@ limitations under the License</cc:license>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://elite.polito.it/ontologies/dogont.owl#notificationName"/>
-                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">changedAirQualtyLevel</owl:hasValue>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">changedAirQualityLevel</owl:hasValue>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
